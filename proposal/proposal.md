@@ -128,9 +128,9 @@ still building this.〉
 
 > Briefly state the problem to solve in this project.
 
-〈Your problem statement(s), **concise** — a few sentences each, no
-background (that was §1) and no solution (that is §3). Number them P1, P2, …
-so later sections can refer back.〉
+P1. Build variety in roguelites can collapse when class choice locks players into a narrow set of options or when a few weapon builds dominate, which weakens replayability.
+P2. Fully random level generation tends to lose the quality of designed encounters, while fully authored levels lose variety; a run needs structured randomness that preserves both.
+P3. Weapon progression that relies on a single mechanism becomes predictable, so progression needs several interacting layers that remain understandable and balanceable.
 
 **Every problem here must connect to the goals and objectives in §2, and
 every goal in §2 must trace back to a problem here.** A goal with no problem
@@ -140,8 +140,9 @@ is what the final project report is graded against.
 
 | Problem | Addressed by |
 |---|---|
-| P1 〈one line〉 | 〈Goal 1 (#n)〉 |
-| P2 〈one line〉 | 〈Goal 2 (#n)〉 |
+| P1 Build Variety and class lock-in | 〈Goal 1 (#n)〉 |
+| P2 Structured randomness versus authored quality | 〈Goal 2 (#n)〉 |
+| P3 Predictable weapon progression | 〈Goal 3 (#n)〉 |
 
 ## 2. Goals and Objectives
 
