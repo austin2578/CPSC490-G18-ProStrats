@@ -101,28 +101,34 @@ Date: 〈YYYY-MM-DD〉
 
 ### 1.1 Related Work
 
-> Describe the related or existing work in detail. This section is like a
-> survey on the selected problem or topic.
+Action roguelites, roguelike deckbuilders, and action RPGs provide relevant precedents for Project Rogue through their approaches to combat and character development. The central design question is how combat, equipment, character identity, and route selection can produce meaningful decisions within a run. This survey compares Dead Cells, Hades, Salt and Sanctuary, and Slay the Spire along those dimensions. The comparison uses developer descriptions rather than a controlled gameplay study; the strengths and limitations below are design interpretations relative to this project's goals, not measured judgments of game quality.
 
-〈Your survey. Cite with bracketed numbers matching §8 — every reference must
-be a source your team has actually read.〉
+Dead Cells is the closest reference for the proposed moment-to-moment gameplay. Motion Twin describes it as a 2D action-platformer with pattern-based enemies, distinctive weapons and spells, nonlinear paths, and hidden passages [1]. These features connect combat execution with exploration: selecting a route changes the spaces and challenges the player encounters, while movement and enemy recognition determine whether the player survives. This is a useful precedent for Project Rogue's combat rooms, traversal challenges, and secrets. However, the described approach does not by itself establish the proposed relationship between freely chosen attributes and persistent investments within a run's weapon-family skill trees. Project Rogue intends to make that relationship explicit, so replacing a weapon involves considering its moveset, scaling, and compatibility with previous investments rather than evaluating damage alone.
 
-**Do a comparative analysis, not a list of summaries.** Find the existing
-ideas, products, papers, or tools that attack the same problem and compare
-them against each other on the dimensions that matter for your project, with
-honest pros and cons. Then say plainly what your project does differently and
-why that difference is worth the effort.
+Hades provides a complementary reference for character builds. Supergiant Games describes weapons and selectable Olympian boons as sources of build variety, alongside permanent improvements available through the Mirror of Night [2]. Its relevance is the interaction between action combat and choices that modify the player's abilities. Project Rogue similarly proposes boons that affect attacks, statuses, and resources. Its intended emphasis is on changing build direction during a run through weapon replacement, attribute redistribution, and weapon-family Mastery. This comparison does not imply that Hades lacks build depth; it identifies the additional progression structure that Project Rogue proposes to investigate. Supporting more opportunities to reconsider a build also creates a cost: the player must understand more dependencies before judging whether a new item is useful.
 
-| Existing approach | What it does | Pros | Cons | Why ours differs |
+Salt and Sanctuary provides a relevant example of combining 2D action combat with RPG character customization. Ska Studios describes a system of discoverable, craftable, and upgradeable equipment within an interconnected world containing platforming challenges, secrets, and hidden shortcuts [3]. These features make it a useful reference for Project Rogue's relationship between equipment choices, combat, and room exploration. The principal distinction is progression structure: Salt and Sanctuary emphasizes exploration of a connected world, whereas Project Rogue proposes branching routes through handcrafted encounters across three Acts. Project Rogue also intends to make weapon replacement a recurring strategic decision through run-local attributes, weapon-family Mastery, and respec opportunities. This combination would require careful balancing so that changing weapons remains viable without making earlier investments feel meaningless.
+
+Slay the Spire is relevant to strategic planning even though it centers on card combat rather than action-platforming. Mega Crit describes a changing layout, choices between safer and riskier paths, and interactions between cards and relics [4]. These systems make adaptation part of progression: the value of a reward depends on how it works with the current deck, while a route affects which opportunities become available. Project Rogue applies a similar relationship to weapons, boons, and encounter selection. Its proposed branching map would lead to physical doors and handcrafted rooms, where players must execute the chosen strategy through movement and combat. Translating planning into real-time play adds a challenge absent from a purely card-based comparison: build information must remain understandable without disrupting the pace of combat.
+
+| Existing approach | What it does | Pros relative to project goals | Cons or tradeoffs relative to project goals | Why Project Rogue differs |
 |---|---|---|---|---|
-| 〈product / paper [1]〉 | 〈…〉 | 〈…〉 | 〈…〉 | 〈…〉 |
-| 〈product / paper [2]〉 | 〈…〉 | 〈…〉 | 〈…〉 | 〈…〉 |
-| 〈product / paper [3]〉 | 〈…〉 | 〈…〉 | 〈…〉 | 〈…〉 |
+| Dead Cells [1] | Combines 2D combat, distinctive equipment, nonlinear routes, and secrets. | Closely matches the desired connection between movement, combat, and exploration. | Does not serve as a direct specification for the proposed attribute and weapon-family Mastery relationship. | Proposes one active weapon with run-local family skill investments and attribute-based build changes. |
+| Hades [2] | Combines action combat, weapons, boon choices, and permanent upgrades. | Shows how ability modifiers can support varied combat builds across repeated attempts. | Adopting boon choices alone would leave the project's respec and Mastery systems undefined. | Proposes coordinated changes to weapons, attributes, and family skill trees during a run. |
+| Salt and Sanctuary [3] | Combines 2D action combat with customizable equipment, crafting, upgrades, and an interconnected world. | Connects character customization with combat, platforming, secrets, and exploration. | Its interconnected campaign structure provides a different progression model from the proposed branching, run-based encounters. | Project Rogue proposes run-local attributes and weapon-family Mastery, with replaceable weapons and branching routes through handcrafted rooms. |
+| Slay the Spire [4] | Combines changing routes with card selection and relic interactions. | Links reward evaluation and risk management to the current build. | Card-based combat does not directly address movement, timing, or action readability. | Couples branching route decisions with handcrafted action, puzzle, and traversal rooms. |
 
-〈Discuss the table in prose — the table is evidence, the paragraph is the
-argument. "Nothing like this exists" is almost never true and reads as a
-missing survey; if a close competitor exists, say so and explain why you are
-still building this.〉
+Together, these works establish that equipment variety, temporary build modifiers, persistent progression, and strategic routing are existing approaches rather than new inventions. Project Rogue's proposed contribution is their particular combination: flexible starting classes, a replaceable active weapon, separate attribute and Mastery investments, and a branching route through authored encounters. For example, a useful Staff drop could encourage a Knight to reconsider attributes and seek a respec service, making a combat reward influence the next route choice. The value of this combination remains a hypothesis. Prototyping and playtesting should determine whether players can understand these interactions, recognize viable build changes, and find those decisions worthwhile. The gameplay design brief supplies this intended direction; it does not establish that the proposed systems have already been implemented or validated.
+
+*Draft source entries for eventual integration into §8, numbered in order of first citation. These sources were consulted while preparing this draft; the team should read them before submission. They are kept here temporarily so this edit remains limited to §1.1.*
+
+[1] Motion Twin. “Dead Cells.” Official game website. https://dead-cells.com/. Accessed October 2, 2026.
+
+[2] Supergiant Games. “Hades.” Developer-published game description on Steam, “About This Game.” https://store.steampowered.com/app/1145360/Hades/. Accessed October 2, 2026.
+
+[3] Ska Studios. “Salt and Sanctuary.” Official game website. https://ska-studios.com/games/salt-and-sanctuary/. Accessed October 2, 2026.
+
+[4] Mega Crit. “Slay the Spire.” Developer-published game description on Steam, “About This Game.” https://store.steampowered.com/app/646570/Slay_the_Spire/. Accessed October 2, 2026.
 
 ### 1.2 Problem Statements
 
