@@ -71,20 +71,11 @@ Date: 〈YYYY-MM-DD〉
 
 ## 0. Abstract
 
-> The primary purpose of abstract is to help the reader understand the main
-> message of current document (proposal in this case) without reading the
-> entire document. Therefore an abstract should include at least one or two
-> paragraph of background (or motivation) information for the project, a
-> brief description of the problem you are trying to solve in this proposal,
-> a proposed ideas or solutions, the significance of your proposed idea
-> elaborating why the proposed idea is non-trivial, significant, or
-> beneficial in one or two paragraphs, the project goals and outcomes in one
-> paragraph, and a brief description of what you will discuss in this
-> proposal, giving a brief outline of this document in 1-2 sentences in one
-> paragraph. Abstract should not exceed one page. Any abstract exceeded
-> one-page limit must be shortened.
+Project Rogue is a 2D platformer roguelite that explores how combat, equipment, and character builds work together to create different routes and how these decisions affect a run. Project Rogue draws mechanic and world building inspiration from other other games such as Dead Cells, Hades, Slay the Spire, and Salt and Sanctuary. The project features flexible starting classes, run-specific attributes, boons, branching routes, and distinct weapon types with a goal of achieving character build variety and replayability through persistent progression each run. By combining structured randomness with unique encounters, Project Rogue seeks to provide varied runs while preserving previous combat, exploration, and platforming experience.
 
-〈Your abstract. Write it last.〉
+The primary goal of this porject is to develop a playable prototype and test how well these systmes can work together. The proposed systems / mechanics will be tested by playing the game ourselves to determine whether players will be able to understand different build options, make meaningful decisions, and adapt to new weapons and abilites that can be unlocked on different routes or playthroughs. 
+
+(add more once proposal finished)
 
 ## 1. Introduction
 
