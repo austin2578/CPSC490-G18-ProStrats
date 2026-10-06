@@ -29,3 +29,30 @@ build/
 # Converted submissions (keep the Markdown source of truth in git;
 # commit a .docx deliberately if your team writes in Word)
 proposal/*.docx
+
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Unity / IDE generated project files
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity crash / diagnostic files
+sysinfo.txt
