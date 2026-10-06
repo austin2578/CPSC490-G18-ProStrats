@@ -1,40 +1,30 @@
-# Development plan — Group 〈N〉 〈Group Name〉
+# Development plan — Group 18 ProStrats
 
-> Due with the proposal. Revisit it at **every sprint review** and change what
-> is not working — a plan nobody revises is a plan nobody uses.
 
 ## 1. Team charter
 
 ### External goals
 
-〈What does this team want out of the project beyond a grade? A portfolio
-piece, a sponsor reference, a conference submission, a skill each member
-wants? Say it plainly — it is what you will trade against when time runs
-short.〉
+We want to gain practical experience of working as a game development team and create a fully functional game that can be used as a portfolio piece. Beyond working as a team, each member of the group wants to strengthen skills in game design and Unity.
 
 ### Attendance
 
 | | Our rule |
 |---|---|
-| Expected meetings | 〈e.g. Tuesdays 4pm, plus the project meeting〉 |
-| Acceptable excuse | 〈e.g. illness, work shift, family — told in the group chat before the meeting〉 |
-| Unacceptable | 〈e.g. silent no-show〉 |
-| In an emergency | 〈who to tell, and how work gets handed over〉 |
+| Expected meetings | Every Sunday (time varies) and bi-weekly project meetings |
+| Acceptable excuse | Illness, family emergency, work scheduling |
+| Unacceptable | Silent no-show |
+| In an emergency | Tell the group and the present members will split up the remaining work. |
 
 ### Accountability — with numbers
 
-**Write a quantified trigger and a real consequence for each row.** A vague
-charter ("we will all do our share") is useless at the moment you need it.
-The point of numbers is that nobody has to muster the courage to accuse a
-teammate — they point at the rule everyone already agreed to.
-
 | Concern | Trigger (measurable) | Consequence |
 |---|---|---|
-| Missing meetings | 〈misses 20% of team meetings in a sprint〉 | 〈brings coffee; second occurrence → the team raises it at the project meeting〉 |
-| Not contributing code/docs | 〈fewer than 5% of the team's merged PRs by the prototype-v0 deadline〉 | 〈meeting with the instructor〉 |
-| Work quality | 〈a PR reopened twice for the same missed acceptance criterion〉 | 〈pairs with a teammate on the next story〉 |
-| Not reviewing | 〈reviews no PR in a sprint〉 | 〈takes the reviewer rotation for the next sprint〉 |
-| Going dark | 〈no response in the group chat for 3 days〉 | 〈team lead calls; then the instructor is told〉 |
+| Missing meetings | Misses 20% of team meetings in a sprint | Review what was missed on their own time; the team raises it at the next meeting after multiple times |
+| Not contributing code/docs | fewer than 5% of the team's merged PRs by the prototype-v0 deadline | Team lead will contact the professor about no contributions. |
+| Work quality | a PR reopened twice for the same missed acceptance criterion | Another teammate will look over the issue and help with resolving it. |
+| Not reviewing | Reviews no PR in a sprint | Make sure to do reviews for other team members in the next sprint. |
+| Going dark | No response in the group chat after several days or missed pings. | Team lead will contact the professor about no-show. |
 
 ### Quality assurance
 
@@ -44,16 +34,14 @@ written. See the "harness owner" idea in `docs/aidlc/loop-engineering.md` §8.�
 
 | Sprint | QA / harness owner |
 |---|---|
-| 1 | 〈name〉 |
-| 2 | 〈name〉 |
-| 3 | 〈name〉 |
-| 4 | 〈name〉 |
+| 1 | Maxmilliano Armenta |
+| 2 | Brady Truong |
+| 3 | Rebekah Bumatay |
+| 4 | Austin Monroe / Kim Brodersen |
 
 ### Decision making
 
-〈How do you decide when you disagree — consensus, majority, lead decides
-after hearing everyone? And how long may a decision stay open before someone
-just calls it?〉
+When team members disagree, the group will discuss each perspective and idea. Once everyone has shared their reasoning, a majority vote can be made if the team still cannot come to a decision or the team leader can make the final decision. Urgent decisions / disagreements can be settled by the team member that was in charge of handling it originally.
 
 ## 2. Workflow
 
@@ -68,20 +56,15 @@ just calls it?〉
 
 ## 3. Use of AI and LLMs
 
-〈How will this team use assistants — for which parts of the proposal, the
-documents, and the prototype? Which rules will you hold each other to beyond
-the course minimum?〉
+AI may be used to help wiht initial idea planning, debugging, and creating scaffolding for the documentation of the game prototype. AI assistants may also be used when the team needs help with explaining unfamiliar / challenging concepts or helping a team member solve any issues that may come up while coding. Beyonfd the course minimum, the team will hold each other accountable for explicit statement of AI use, communication, and completing assigned work on time. 
 
 The course rules are in [`aidlc/hitl-gates.md`](aidlc/hitl-gates.md); the
 prompts are in [`aidlc/prompt-library.md`](aidlc/prompt-library.md). Every
-deliverable carries a disclosure, and every PR says what was verified.
-
-〈Name your team's own additions, e.g. "nobody merges generated code they
-cannot explain in the sprint meeting"; "the reviewer always spot-checks two
-facts".〉
+deliverable carries a disclosure, and every PR says what was verified. Team members will need to descirbe in detail what was changed in each file and test any changes before submitting a review request. Team members need to explicitly define use of AI and are able to explain any code that was generated by AI. 
 
 ## 4. Risk register
 
+* Needs updating!
 Review and update at every sprint boundary. Likelihood and impact: H / M / L.
 
 | # | Risk | L | I | Early warning sign | What we will do about it | Owner |
@@ -96,5 +79,4 @@ they are problems. Move them to an issue.〉
 
 ## 5. Technology and environment
 
-〈Languages, frameworks, services, accounts needed, and who owns each setup.
-The detail belongs in the proposal §4; this is the working list.〉
+C#, Unity, (add more later)
