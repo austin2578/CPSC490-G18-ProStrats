@@ -56,3 +56,7 @@ proposal/*.docx
 
 # Unity crash / diagnostic files
 sysinfo.txt
+# …except the course's own: the Word template pandoc lays the proposal into,
+# and the worked example's output
+!proposal/reference.docx
+!proposal/example-proposal.docx
