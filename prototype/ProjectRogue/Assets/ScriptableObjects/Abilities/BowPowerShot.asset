@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b43893b8b4c190488084264639580ac, type: 3}
+  m_Name: BowPowerShot
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityData
+  displayName: BowPowerShot
+  shape: 1
+  resource: 1
+  cost: 25
+  cooldown: 2.5
+  damageMultiplier: 2.5
+  damageType: 0
+  tags: []
+  hitboxSize: {x: 1.5, y: 1}
+  hitboxOffset: {x: 0.6, y: 0}
+  projectilePrefab: {fileID: 3630862292438856276, guid: c8fda4ce43c5bd243b8ce23ff646ef97, type: 3}
+  projectileSpeed: 14
+  projectileLifetime: 2
