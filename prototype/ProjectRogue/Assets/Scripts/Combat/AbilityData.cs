@@ -2,7 +2,6 @@ using UnityEngine;
 
 public enum AttackShape { Melee, Projectile }
 
-// Basic attacks are just abilities with cost 0.
 // Sword abilities are Melee; bow and wand abilities are Projectile.
 [CreateAssetMenu(menuName = "Rogue/Ability")]
 public class AbilityData : ScriptableObject
@@ -15,6 +14,10 @@ public class AbilityData : ScriptableObject
     public float damageMultiplier = 1f;
     public DamageType damageType = DamageType.Physical;
     public string[] tags;
+
+    [Header("Damage scaling (extra damage per attribute point; 0 = none)")]
+    public AttributeType scalingAttribute = AttributeType.Strength;
+    public float scalingPerPoint = 0f;
 
     [Header("Melee hitbox / projectile spawn point (relative to attacker, mirrored by facing)")]
     public Vector2 hitboxSize = new Vector2(1.5f, 1f);   // melee only

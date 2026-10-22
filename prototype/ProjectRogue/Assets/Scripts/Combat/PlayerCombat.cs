@@ -46,6 +46,7 @@ public class PlayerCombat : MonoBehaviour
         return basicAttack;
     }
 
+    // Every attack, basic or skill, goes: cooldown check -> resource cost -> scaled damage -> hit.
     public bool TryUse(AbilityData ability)
     {
         if (ability == null) return false;
@@ -63,11 +64,13 @@ public class PlayerCombat : MonoBehaviour
             ? weapon.GetBaseDamage(attributes)
             : fallbackBaseDamage;
 
-        if (ability.shape == AttackShape.Projectile) FireProjectile(ability, baseDamage);
-        else MeleeHit(ability, baseDamage);
+        float damage = CombatResolver.ComputeDamage(ability, baseDamage, attributes);
+
+        if (ability.shape == AttackShape.Projectile) FireProjectile(ability, damage);
+        else MeleeHit(ability, damage);
     }
 
-    void MeleeHit(AbilityData ability, float baseDamage)
+    void MeleeHit(AbilityData ability, float damage)
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(OffsetPoint(ability), ability.hitboxSize, 0f, hitMask);
 
@@ -77,11 +80,11 @@ public class PlayerCombat : MonoBehaviour
             if (col.transform.IsChildOf(transform)) continue; // don't hit ourselves
             IDamageable target = col.GetComponentInParent<IDamageable>();
             if (target == null || !alreadyHit.Add(target)) continue;
-            CombatResolver.Apply(gameObject, ability, baseDamage, target);
+            CombatResolver.Apply(gameObject, ability, damage, target);
         }
     }
 
-    void FireProjectile(AbilityData ability, float baseDamage)
+    void FireProjectile(AbilityData ability, float damage)
     {
         if (ability.projectilePrefab == null)
         {
@@ -90,7 +93,7 @@ public class PlayerCombat : MonoBehaviour
         }
 
         Projectile p = Instantiate(ability.projectilePrefab, OffsetPoint(ability), Quaternion.identity);
-        p.Launch(gameObject, ability, baseDamage, hitMask, new Vector2(Facing, 0f));
+        p.Launch(gameObject, ability, damage, hitMask, new Vector2(Facing, 0f));
     }
 
     Vector2 OffsetPoint(AbilityData ability)

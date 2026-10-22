@@ -1,21 +1,20 @@
 using UnityEngine;
 
-// Arrow / magic bolt. Put this on a small prefab that also has a Rigidbody2D and a Collider2D.
-// It deals damage through CombatResolver on the first valid target it touches, then disappears.
+// Arrow / magic bolt.
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Projectile : MonoBehaviour
 {
     GameObject attacker;
     AbilityData ability;
-    float baseDamage;
+    float damage; // final, already scaled (CombatResolver.ComputeDamage)
     LayerMask hitMask;
     bool used;
 
-    public void Launch(GameObject attacker, AbilityData ability, float baseDamage, LayerMask hitMask, Vector2 direction)
+    public void Launch(GameObject attacker, AbilityData ability, float damage, LayerMask hitMask, Vector2 direction)
     {
         this.attacker = attacker;
         this.ability = ability;
-        this.baseDamage = baseDamage;
+        this.damage = damage;
         this.hitMask = hitMask;
 
         var rb = GetComponent<Rigidbody2D>();
@@ -40,7 +39,7 @@ public class Projectile : MonoBehaviour
         if (target == null) return;
 
         used = true;
-        CombatResolver.Apply(attacker, ability, baseDamage, target);
+        CombatResolver.Apply(attacker, ability, damage, target);
         Destroy(gameObject);
     }
 }
