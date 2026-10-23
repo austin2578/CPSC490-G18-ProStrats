@@ -1,0 +1,30 @@
+PLACEHOLDER SPRITE CREDITS
+
+Source collection: https://game-icons.net/
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+License terms: https://creativecommons.org/licenses/by/3.0/
+Downloaded: October 16, 2026
+
+Sword (Broadsword) - Lorc
+https://game-icons.net/1x1/lorc/broadsword.html
+
+Axe (Battle axe) - Lorc
+https://game-icons.net/1x1/lorc/battle-axe.html
+
+Bow (Bow arrow) - Delapouite
+https://game-icons.net/1x1/delapouite/bow-arrow.html
+
+Fire (Small fire) - Lorc
+https://game-icons.net/1x1/lorc/small-fire.html
+
+Water (Water drop) - sbed
+https://game-icons.net/1x1/sbed/water-drop.html
+
+Wind (Wind slap) - Lorc
+https://game-icons.net/1x1/lorc/wind-slap.html
+
+Modifications: Original white-on-transparent PNG downloads were renamed for this project; image contents were not altered. Unity sprite import metadata does not modify the source PNGs. Visual prefabs apply Unity SpriteRenderer tints: silver for Sword/Axe, tan for Bow, orange for Fire, blue for Water, and pale green for Wind. These tints are adaptations of presentation; source PNG bytes are unchanged. No animation or gameplay behavior was added.
+
+Suggested credits: Placeholder icons by Lorc, Delapouite, and sbed from game-icons.net, licensed under CC BY 3.0. See the individual source links above.
+
+These assets are visual placeholders, not an implementation of weapons, element passives, or class mechanics. Retain these credits with redistributed assets and include attribution in the game's credits when used in a release.
