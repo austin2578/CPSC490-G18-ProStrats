@@ -1,86 +1,119 @@
-# Sprint 1 review — 〈your group's Sprint 1 dates, e.g. Oct 1 – Oct 14〉
-
-> One file per sprint, written at the sprint boundary (the setup guide's
-> *The four sprints* section). This file, the board, and the merged PRs are
-> what the sprint's **5%** (of the syllabus's 20% *Prototype & repository
-> practice*) is assessed on — as they stand at the boundary.
-> This is what makes **Transparency** and carry-over decisions visible at
-> grading time — don't reconstruct it later.
+# Sprint 1 review — October 8–24, 2026
 
 ## Progress this sprint — the substance
 
-This is what the sprint's 5% is assessed on. Be concrete and link things.
+### Proposal moved
 
-**Proposal moved:**
-| Section | What changed | Where |
-|---|---|---|
-| 〈§1.1 Related Work〉 | 〈comparative table added, 6 sources〉 | 〈PR #n〉 |
-| 〈docs/specs/x.md〉 | 〈new specification for epic #n〉 | 〈PR #n〉 |
+PR #42 updated proposal/proposal.md §2 Goals and Objectives,
+closed #28, received non-author approval, and was merged into develop.
 
-**Prototype moved:** 〈what it can do now that it could not at the start of
-this sprint, and how you demonstrated it — a command, a screenshot, a test
-name.〉
+The team developed and reviewed its gameplay design document and discussed
+gameplay mechanics, enemy types, and reference games. The professor also
+approved the change to the weapon-and-element direction. The proposal,
+planning documents, and issues need to consistently reflect that approval.
 
-〈If either line is thin, say so plainly and say why. An honest "the sponsor
-data never arrived, so we built against a synthetic fixture instead" reads
-far better than a padded list.〉
+### Prototype moved
+
+PR #44 implemented shared movement and traversal, including horizontal
+movement, jumping, ground detection, weapon-based traversal utilities,
+and a handcrafted traversal room. Approved PR was
+merged into develop on October 23, closing #36.
+
+PR #45 implemented the shared combat pipeline, including damage handling,
+basic attacks, active abilities, resource costs, scaling scaffolding,
+and a combat test scene. Brady reviewed and merged the PR, closing #37.
+
+These contributions established movement and combat foundations.
+Their integration with the remaining progression, encounter, and run
+systems is continuing work.
 
 ## Velocity
 
-| | Story points | Stories |
+| Metric | Story points |
 |---|---|---|
-| Planned | 〈n〉 | 〈n〉 |
-| Completed | 〈n〉 | 〈n〉 |
+| Original planned commitment | 40 |
+| Completed by the extended October 24 deadline | 13 |
+| Carried over | 27 |
 
-## Completed (merged PRs)
+Scope was too big so many task from Sprint 1 were moved to Sprint 2 and Sprint 3
 
-| Story | Owner | Points | PR |
+## Completed work
+
+| Issue | Owner | Deliverable | PR |
 |---|---|---|---|
-| 〈#n title〉 | @〈user〉 | 〈3〉 | 〈#pr〉 |
+| #28 | Austin | Proposal §2 Goals and Objectives | #42 |
+| #36 | Brady | Movement, weapon traversal, and handcrafted traversal room | #44 |
+| #37 | Max | Shared combat pipeline and combat test scene | #45 |
 
 ## Carried over — and why
 
-| Story | Owner | Why not finished | Decision |
+Unfinished work was moved to later sprints after feedback that the
+Sprint 1 commitment was too large. Moving an issue does not make it
+completed; the table records the remaining work and revised destination.
+
+| Issue | Owner | Remaining work | Destination / reason |
 |---|---|---|---|
-| #〈n〉 | @〈user〉 | 〈honest reason〉 | 〈re-scoped / moved to Sprint 2 / split into #…〉 |
+| [Issue] | [Owner] | [What remains] | [Sprint and reason] |
 
-## Loop health (docs/aidlc/loop-engineering.md §8)
+Each owner will confirm their remaining work. The final table will
+preserve the original Sprint 1 commitment rather than relying only on
+current milestone assignments.
 
-| | This sprint |
-|---|---|
-| Iterations to green, average per PR | 〈n〉 |
-| Harness rules added (rows in the harness log) | 〈n〉 |
+## Verification and limitations
 
-〈One line: is our spec-writing improving, or are we still discovering
-requirements during implementation?〉
+PR #44 reports verification of movement physics, ground detection,
+weapon traversal behavior, respawning, selector controls, and completion
+of the mandatory traversal route by all nine supported weapon/element
+combinations.
 
-## Prototype increment
+PR #45 reports verification of basic attacks, active abilities, resource
+costs, cooldowns, damage scaling, projectile behavior, and target defeat.
 
-〈What the prototype can do at the end of this sprint that it couldn't at the
-start; how it was demonstrated.〉
+These are author-reported checks documented in the PRs. They do not
+establish that every teammate independently repeated the tests.
 
-## Feedback we received, and what we did about it
+Known limitations include incomplete element-passive effects in the
+movement prototype, temporary attribute scaffolding in combat, and
+projectiles passing through walls. Combined-system behavior requires
+further integration testing.
 
-Every item of feedback from the instructor, the sponsor, or a reviewer gets a
-row. "We were told and did nothing" is a legitimate row — with a reason.
+## Feedback we received, and our response
 
-| Feedback (source) | What we changed | Issue / PR |
+| Feedback | Response / current status | Evidence |
 |---|---|---|
-| 〈advisor meeting, issue #〈n〉: "the ER model has no cardinality"〉 | 〈added cardinality and reviewed against checklist D4〉 | 〈#n / PR #n〉 |
+| Sprint scope was too large | Revising labels, estimates, and sprint allocation | [Sprint Board](https://github.com/users/austin2578/projects/1) |
+| Stories lacked clear deliverables and criteria | Owners will fill active story bodies with deliverables, acceptance criteria, dependencies, and scope | |
+| PR #44 lacked review and merge | Approved it; merged October 23; #36 closed | PR #44 |
+| Contributions were unevenly distributed | Plan individually owned documentation and prototype contributions, with pairing where helpful | [Sprint Board](https://github.com/users/austin2578/projects/1) |
+| PRs were large and arrived late | Propose smaller increments, earlier draft PRs, and named reviewers |  |
+
 
 ## Contribution snapshot
 
-Three metrics the team chose, per member. Not a grade — a conversation
-starter, and an early warning the team can act on itself.
+All five members attended every team meeting during October 8–21.
+Attendance for any additional meetings through October 24 will be added separately.
 
-| Member | Meetings attended | Merged PRs | Issues closed | Reviews given |
-|---|---|---|---|---|
-| @〈user〉 | 〈n〉 | 〈n〉 | 〈n〉 | 〈n〉 |
+| Member | Contributions |
+|---|---|
+| Austin | Organized much of the repository, authored the team gameplay design PDF, suggested Dead Cells as a reference, and completed proposal §2 through PR #42 |
+| Max | Contributed gameplay direction ideas, suggested Salt and Sanctuary as a reference, prepared meeting notes, and completed the combat pipeline through PR #45 |
+| Kim | Contributed gameplay mechanic and enemy-type ideas; is helping revise labels, estimates, and sprint allocation |
+| Rebekah | Reviewed the gameplay design PDF, approved and merged PR #44, and is helping revise labels, estimates, and sprint allocation |
+| Brady | Implemented and documented movement/traversal through PR #44 and reviewed and merged combat PR #45 |
 
-〈If one member is far below the others, say what the team is doing about it
-here — and note anything the numbers hide, e.g. pairing (use
-`Co-authored-by:` so it shows up), or a big unmerged branch.〉
+Contributors will confirm these descriptions. Supporting gameplay
+document and meeting-note links will be added where available.
+Discussion and coordination are recorded separately from merged
+deliverables.
 
-## What we change next sprint
+## What we propose to change in Sprint 2
 
-- 〈one concrete process change, if any〉
+- Commit to a smaller workload based on demonstrated capacity.
+- Include specifications and planning alongside prototype development.
+- Give every active item an owner, deliverable, and acceptance criteria.
+- Open draft PRs earlier and identify reviewers.
+- Document blockers and carry-over decisions when they occur.
+- Keep approved gameplay requirements consistent across documents and issues.
+- Maintain the sprint review throughout the sprint.
+
+The team will confirm these changes during Sprint 2 planning.
