@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" role="img"><title>Proposed gameplay architecture</title><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#526579"/></marker></defs><rect width="100%" height="100%" fill="white"/>
+<text x="440" y="28" text-anchor="middle" font-family="Arial" font-size="19" fill="#172b40">Proposed gameplay architecture</text>
+<path d="M380,115 L380,155" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M380,215 L380,255" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M380,315 L380,355" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M380,415 L380,455" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M580,285 L510,285" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M510,485 L715,315" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M250,485 L115,315" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M115,255 L250,185" stroke="#526579" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="250" y="65" width="260" height="50" rx="7" fill="#e3effa" stroke="#385c7e" stroke-width="2"/>
+<text x="380.0" y="95.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Input</text>
+<rect x="250" y="155" width="260" height="60" rx="7" fill="#e3effa" stroke="#385c7e" stroke-width="2"/>
+<text x="380.0" y="190.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Movement and combat actions</text>
+<rect x="250" y="255" width="260" height="60" rx="7" fill="#e3effa" stroke="#385c7e" stroke-width="2"/>
+<text x="380.0" y="290.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Shared combat and resources</text>
+<rect x="580" y="255" width="270" height="60" rx="7" fill="#f2f5f8" stroke="#385c7e" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="715.0" y="281.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Build progression and effects</text>
+<text x="715.0" y="299.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Planned</text>
+<rect x="250" y="355" width="260" height="60" rx="7" fill="#f2f5f8" stroke="#385c7e" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="380.0" y="381.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Enemy encounters and completion</text>
+<text x="380.0" y="399.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Planned</text>
+<rect x="250" y="455" width="260" height="60" rx="7" fill="#f2f5f8" stroke="#385c7e" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="380.0" y="481.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Rewards and branching routes</text>
+<text x="380.0" y="499.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Planned</text>
+<rect x="20" y="255" width="190" height="60" rx="7" fill="#f2f5f8" stroke="#385c7e" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="115.0" y="281.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Handcrafted rooms</text>
+<text x="115.0" y="299.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#172b40">Integration planned</text>
+</svg>
