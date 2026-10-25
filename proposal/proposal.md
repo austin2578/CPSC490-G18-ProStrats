@@ -182,6 +182,7 @@ The table includes planned and completed work for Sprints 1–3. **Closed / comp
 | Sprint 2 | [[task:#47]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/47) | Complete the Sprint 1 review and document evaluation follow-up | Brady | **Closed / completed** |
 | Sprint 2 | [[task:#48]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/48) | Prepare the Objective 3.3 playtest procedure, evidence sheet, and analysis plan | Brady | **Open / planned** |
 | Sprint 2 | [[task:#49]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/49) | Draft proposal sections 3–5, system diagrams, and the Sprint 1–3 activity plan | Brady | **Open / planned** |
+| Sprint 2 | [[task:#51]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/51) | Revise the Sprint 1 carry-over table and goal allocation | Brady | **Open / planned** |
 | Sprint 3 | [#39](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/39) | Objective 3.1 — Build three-Act branching routes, at least two route choices per Act, and handcrafted-room progression | Kim | **Open / planned** |
 | Sprint 3 | [#40](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/40) | Objective 3.2 — Implement at least four node/reward types and track Gold, XP, Attribute Points, and Mastery | Rebekah | **Open / planned** |
 | Sprint 3 | [#41](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/41) | Objective 3.3 — Conduct at least five playtest sessions and analyze build variety and changed decisions | Brady | **Open / planned** |
