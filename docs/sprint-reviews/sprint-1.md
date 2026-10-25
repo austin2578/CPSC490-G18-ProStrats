@@ -51,13 +51,17 @@ Unfinished work was moved to later sprints after feedback that the
 Sprint 1 commitment was too large. Moving an issue does not make it
 completed; the table records the remaining work and revised destination.
 
-| Issue | Owner | Remaining work | Destination / reason |
-|---|---|---|---|
-| [Issue] | [Owner] | [What remains] | [Sprint and reason] |
+| Issue | Remaining work | Destination / reason |
+|---|---|---|
+| #32 — Objective 1.1 | Complete the starting-loadout specification and implementation, aligned with the approved weapon-and-element direction | Sprint 2 — Sprint 1 scope exceeded team capacity |
+| #33 — Objective 1.2 | Complete attributes, resources, leveling, and respec functionality | Sprint 2 — Sprint 1 scope exceeded team capacity |
+| #34 — Objective 1.3 | Complete weapon progression, Mastery, affixes, and equipped skills | Sprint 2 — Sprint 1 scope exceeded team capacity |
+| #38 — Objective 2.3 | Complete enemy encounters, including attacks, damage, defeat, encounter completion, and rewards | Sprint 2 — Sprint 1 scope exceeded team capacity |
+| #39 — Objective 3.1 | Complete the branching three-Act route structure and handcrafted-room progression | Sprint 3 — Rescheduled after the Sprint 2 progression and encounter work |
+| #40 — Objective 3.2 | Complete node/reward types and run-local progression tracking | Sprint 3 — Rescheduled after the Sprint 2 progression and encounter work |
+| #41 — Objective 3.3 | Conduct five playtest sessions and analyze build variety and player decisions | Sprint 3 — Requires the relevant gameplay systems to be ready for testing |
 
-Each owner will confirm their remaining work. The final table will
-preserve the original Sprint 1 commitment rather than relying only on
-current milestone assignments.
+Goal 1 (#29) and Goal 2 (#30) were moved to Sprint 2, and Goal 3 (#31) was moved to Sprint 3. These epics group the objective-level work above and are not counted as additional story points. Movement and combat (#36 and #37) remain completed Sprint 1 work; moving their parent Goal 2 does not change their completion status.
 
 ## Verification and limitations
 
