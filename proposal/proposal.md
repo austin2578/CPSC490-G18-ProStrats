@@ -110,100 +110,94 @@ Objective 3.3: Playtest build variety/decision-making - Conduct at least five pl
 
 ## 3. Proposed Approaches
 
-> Describe your proposed approach to solve the problem, specifying how you
-> will achieve the stated goals. List some possible strategies.
+Project Rogue will investigate build variety by allowing players to begin with a weapon and an element, then adapt their build as rewards and route choices become available. Weapons supply active combat and utility abilities, while elements supply passive effects. Attributes, weapon-family Mastery, affixes, and boons will provide further ways to develop the build during a run. This approach addresses class lock-in by making starting choices a foundation for experimentation. Exact effects, ability values, and balance formulas will be refined through testing. The earlier class-based wording in §2 still requires team alignment with the approved weapon-and-element direction.
 
-〈Your approach — **clear and concise**. State the strategy you chose, the
-alternatives you considered, and the reasoning that decided between them.
-Think of this as the argument, not the manual: a reader should finish this
-section understanding *what* you will do and *why that* rather than the
-alternatives.〉
+To combine replayability with deliberate encounter design, the project will use branching routes across three Acts connected to handcrafted rooms. Fully procedural terrain could provide more layouts, but would make platforming quality and encounter pacing harder to control. A single fixed route would preserve authored encounters but offer fewer routing decisions. A changing route structure with authored rooms allows the team to investigate both strategic choices and moment-to-moment play. Mandatory traversal paths will remain accessible to supported starting combinations; optional paths can reward weapon utility and exploration.
 
-**Keep the details out of this section.** Tooling, platforms, frameworks,
-DBMS choices, environment setup, diagrams, and the work breakdown all belong
-in §4 (Required Environment, Resources, and Planned Activities). If a
-sentence here names a version number, a library, or a configuration, it
-probably belongs in §4 — leave a pointer instead ("the implementation stack
-is detailed in §4").
+Combat, resources, and build effects will use shared rules so weapons and encounters can interact consistently. The existing combat pipeline provides a foundation for applying ability costs, cooldowns, scaling, and damage. Planned progression and effect systems will extend it, including effect-source and proc-depth tracking to prevent uncontrolled recursive triggers. Shared rules should make interactions easier to verify than separate formulas for each weapon. The implementation environment and proposed system boundaries are described in §4.
 
-〈A few paragraphs, or a short list of candidate strategies with one line of
-trade-off each. If it runs past a page, you are writing §4.〉
+Development will proceed through small, testable increments: establish movement and combat, integrate progression and enemy encounters, then connect rooms, rewards, and routing. Individual mechanics will be checked before evaluating the combined gameplay loop. Once the necessary systems are available, at least five playtest sessions will record starting weapon and element, rewards, build changes, route choices, and the player's reasons. These observations will support conclusions about clarity and decision-making within the tested prototype; a small study will not establish long-term balance or replayability.
 
 ## 4. Required Environment, Resources, and Planned Activities
 
-> Review the required and available resources and environment to complete
-> your project. For example, server, platform, software tools, operating
-> systems, DBMS, or any required skills.
->
-> Describe the expected activities to achieve the stated goals, e.g.,
-> software development process.
+### Development environment and resources
 
-〈Your environment, resources, and planned activities.〉
+Project Rogue uses C# and Unity 6000.3.25f1. The shared project, `prototype/ProjectRogue/`, uses the Universal 2D foundation, Universal Render Pipeline, Unity Input System, and 2D physics. Scenes, prefabs, scripts, project settings, and `.meta` files are versioned together; generated caches such as `Library` and `Temp` are excluded. The target deliverable is a downloadable Windows game. Developers need a computer able to run the selected Editor, a C# editor, Git, and a Windows environment for standalone-build testing. Minimum player hardware requirements will be established through build testing. Keyboard input exists in the prototype; final bindings, controller support, and archive-versus-installer packaging remain team decisions.
 
-**Diagrams belong in this section.** Include at minimum a high-level
-architecture diagram and a system (context) diagram; add the ER/EER model and
-a data-flow diagram where they help the reader understand what you are
-building and what it depends on. Draw them with any graphical tool
-(Lucidchart, draw.io, Miro, Mermaid, ERDPlus, Figma), keep the authoritative
-copies in `docs/design/` with both editable source and exported image, and
-reference them here.
+The team needs skills in C# scripting, 2D collision and physics, input handling, scene and prefab composition, interface design, balancing, and test documentation. Content resources include sprites, room layouts, animation, and audio. Placeholder content may support early development, with licensing and credits retained for distributed assets. The current foundation does not demonstrate a need for a server or DBMS; any later service or storage requirement must follow an approved feature.
 
-〈Number every figure, caption it, and point at it from the prose — "Figure 1
-shows the three deployment tiers and the trust boundary between them." A
-figure the text never mentions is decoration. See `docs/design/DIAGRAMS.md`
-for tools, conventions, and the rule that every box and arrow must be
-verified against reality.〉
+GitHub hosts the source, issues, pull requests, and Sprint Board. The [development plan](../docs/development-plan.md) records team responsibilities, and the [Git workflow](../docs/git-workflow.md) defines feature work into `develop` and reviewed releases into `main`. Contributions identify their issue, verification evidence, and AI assistance, receive non-author review, and pass applicable checks. The repository harness checks repository and documentation consistency. Current CI detects Node/Python prototype projects; it does not compile or playtest Unity. Editor checks and Windows build tests therefore require separate evidence.
+
+### Proposed system structure
+
+Figure 1 summarizes the intended gameplay responsibilities. Movement and combat have separate prototype foundations. Progression, effects, encounters, and routing require further implementation or integration. These are conceptual responsibilities, not a finalized class hierarchy or evidence that the full run already works.
+
+![Proposed gameplay architecture with existing foundations and planned integrations](../docs/design/diagrams/gameplay-architecture.svg)
+
+*Figure 1 — Proposed gameplay architecture. Dashed boxes identify planned systems or integrations.*
+
+Figure 2 shows the intended Windows game in context. Players interact with the local application, developers supply tested builds and content, and playtest observations return to the team's evaluation process. GitHub supports development; gameplay is not shown depending on a live GitHub connection.
+
+![System context for the Windows game, player, build process, and playtest feedback](../docs/design/diagrams/system-context.svg)
+
+*Figure 2 — Intended system context for the downloadable Windows game and its evaluation.*
+
+The [system overview](../docs/design/system-overview.md) contains editable diagram sources, exported views, evidence, and limitations. Save-file format, detailed progression interfaces, and final effect formulas remain design work.
 
 ### Specification and design documents
 
-**Every specification and design document the team writes is listed here**
-with the objective it serves. This section is the index of the project's
-technical detail: §3 holds the argument, §4 holds the documents that make it
-buildable. CI gate G9 fails if a document exists in `docs/specs/` or
-`docs/design/` that this section does not link.
-
-| Document | Kind | Covers | Issues |
+| Document | Kind | Covers | Status |
 |---|---|---|---|
-| 〈docs/specs/account-management.md〉 | specification | 〈account management requirements〉 | 〈#n, #n〉 |
-| 〈docs/design/architecture.md〉 | design | 〈system architecture + data model〉 | 〈#n〉 |
+| [System overview](../docs/design/system-overview.md) | Design draft | Progression, action gameplay, and run structure from §2 | Proposed architecture and context views for team review |
+| [Development plan](../docs/development-plan.md) | Working agreement | Responsibilities, workflow, and risks | Existing; risk register needs revision |
+| [Sprint 1 review](../docs/sprint-reviews/sprint-1.md) | Progress evidence | Completed increments, limitations, and carry-over | Existing; carry-over details require confirmation |
 
-〈The scaffold ships `docs/specs/example-spec.md` and
-`docs/design/example-design.md` as worked examples — read them, then delete
-them once you have your own, and list yours here.〉
-
-〈Replace these rows with your own. Each document names its epic and stories
-in its own first lines too (gate G2), so the trail runs both ways.〉
+The course example specification and design are reference material, not Project Rogue specifications. Feature specifications must define acceptance checks, dependencies, and scope before dependent implementation. The planned `docs/testing/playtest-protocol.md` will contain consistent tester instructions, recording fields, and an analysis plan. It is not yet available in this checkout and is tracked by [[task:#48]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/48).
 
 ### Planned activities — the work items
 
-The goals and objectives live in §2 as epics and user stories. **This section
-links every *other* work item: features, enhancements, bugs, tasks, and
-sub-tasks** — the concrete activities that deliver those objectives. CI gate
-G8 fails if such an issue exists that this section does not link.
+The table includes planned and completed work for Sprints 1–3. **Closed / completed** identifies issues closed as completed in GitHub; **Closed / retired** identifies duplicate tracking that was retired. These labels record issue status rather than a new acceptance decision. Movement and combat are shown in Sprint 1 to preserve the team's reported completion history, although their current GitHub milestones are Sprint 2. The Sprint 1 review follow-up (#47) is listed in Sprint 2 according to its milestone.
 
-| Issue | Type | Activity | Parent | Owner | Sprint |
-|---|---|---|---|---|---|
-| 〈#n〉 | 〈task〉 | 〈stand up the prototype login endpoint〉 | 〈#story〉 | 〈owner〉 | 〈Sprint 1〉 |
-| 〈#n〉 | 〈feature/enhancement/bug/task/sub-task〉 | 〈…〉 | 〈#story〉 | 〈…〉 | 〈…〉 |
+| Sprint | Issue | Planned activity | Owner | Status |
+|---|---|---|---|---|
+| Sprint 1 | [[task:#2]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/2) | Set up the project README | Austin | **Closed / completed** |
+| Sprint 1 | [[task:#5]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/5) | Early Related Work writing; overlaps #8 | Brady | **Closed / completed** |
+| Sprint 1 | [[task:#6]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/6) | Write the problem statements | Max | **Closed / completed** |
+| Sprint 1 | [[task:#7]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/7) | Write the Abstract and development plan | Rebekah | **Closed / completed** |
+| Sprint 1 | [[task:#8]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/8) | Compare related games and document sources | Brady | **Closed / completed** |
+| Sprint 1 | [[task:#9]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/9) | Prepare cover information and Introduction | Austin | **Closed / completed** |
+| Sprint 1 | [[task:#15]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/15) | Establish the shared Unity project | Austin | **Closed / completed** |
+| Sprint 1 | [[task:#17]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/17) | Retire duplicate prototype-goal tracking | Austin | **Closed / retired** |
+| Sprint 1 | [[task:#18]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/18) | Track shared Unity environment requirements; overlaps #15 | Austin | **Closed / completed** |
+| Sprint 1 | [[task:#19]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/19) | Retire duplicate proposal-goal tracking | Austin | **Closed / retired** |
+| Sprint 1 | [[task:#20]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/20) | Document proposal motivation and initial content | Austin | **Closed / completed** |
+| Sprint 1 | [[task:#28]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/28) | Write goals and measurable objectives | Austin | **Closed / completed** |
+| Sprint 1 | [#36](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/36) | Objective 2.1 — Implement movement, traversal utilities, and a handcrafted traversal room | Brady | **Closed / completed** |
+| Sprint 1 | [#37](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/37) | Objective 2.2 — Implement shared combat, ability costs, damage scaling, and target defeat | Max | **Closed / completed** |
+| Sprint 2 | [#32](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/32) | Objective 1.1 — Define and implement starting playstyles; align class wording with the approved weapon-and-element direction | Austin | **Open / planned** |
+| Sprint 2 | [#33](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/33) | Objective 1.2 — Implement five attributes, Health/Stamina/Mana, leveling, and respec | Austin | **Open / planned** |
+| Sprint 2 | [#34](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/34) | Objective 1.3 — Implement weapon replacement, scaling grades, Mastery, affixes, and up to three active skills | Max | **Open / planned** |
+| Sprint 2 | [#35](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/35) | Objective 1.4 — Implement boons, effects, statuses, at least four build interactions, and controlled proc behavior | Rebekah | **Open / planned** |
+| Sprint 2 | [#38](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/38) | Objective 2.3 — Implement at least three enemy encounter configurations, attacks, defeat, completion, and rewards | Kim | **Open / planned** |
+| Sprint 2 | [[task:#47]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/47) | Complete the Sprint 1 review and document evaluation follow-up | Brady | **Closed / completed** |
+| Sprint 2 | [[task:#48]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/48) | Prepare the Objective 3.3 playtest procedure, evidence sheet, and analysis plan | Brady | **Open / planned** |
+| Sprint 2 | [[task:#49]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/49) | Draft proposal sections 3–5, system diagrams, and the Sprint 1–3 activity plan | Brady | **Open / planned** |
+| Sprint 2 | [[task:#51]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/51) | Revise the Sprint 1 carry-over table and goal allocation | Brady | **Open / planned** |
+| Sprint 3 | [#39](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/39) | Objective 3.1 — Build three-Act branching routes, at least two route choices per Act, and handcrafted-room progression | Kim | **Open / planned** |
+| Sprint 3 | [#40](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/40) | Objective 3.2 — Implement at least four node/reward types and track Gold, XP, Attribute Points, and Mastery | Rebekah | **Open / planned** |
+| Sprint 3 | [#41](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/41) | Objective 3.3 — Conduct at least five playtest sessions and analyze build variety and changed decisions | Brady | **Open / planned** |
 
-〈Replace these rows with your own, and keep the table current as you file new
-issues — with §2 it gives a reader every planned activity in one place, each
-traceable to the objective it serves.〉
+Goals 1 and 2 group the Sprint 2 work, and Goal 3 groups the Sprint 3 work. Their epics are defined in §2 and are not additional tasks or additional story points. Objective rows summarize the activities needed to deliver those objectives; their acceptance criteria remain in §2 and the linked issues. Starting-playstyle requirements still need alignment with the approved weapon-and-element direction.
+
+The sprint table excludes records with no assigned sprint: [#13](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/13) (undefined test record), [#26](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/26) (course-file updates), and instructor records [#3](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/3), [#22](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/22), [#24](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/24), and [#43](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/43). Their classification, owners, and any remaining work need board reconciliation. These sprint allocations do not replace §6's CPSC 491 implementation timeline.
+
+Verification will cover movement and collision, ability costs and cooldowns, damage and defeat, progression changes, encounter completion, rewards, and route transitions as systems become available. Playtests will use a recorded build version and consistent tasks. The team will compare choices and explanations across at least five sessions once build and route decisions are functional. Earlier movement and combat checks are component tests rather than the completed build-variety study.
 
 ## 5. Project Outcomes
 
-> Describe the outcomes or deliverables, e.g., final project report, user
-> manuals, source code, data or database files, etc.
->
-> Note: the deliverables always include the team GitHub repository, which
-> must already contain prototype v0 (a thin end-to-end proof-of-concept,
-> however small, running when this proposal is submitted). Briefly describe
-> what your v0 demonstrates and how to run it.
+The intended outcome is a downloadable Windows version of Project Rogue that supports weapon-and-element builds through action combat, progression, rewards, and branching routes through handcrafted rooms. The finished implementation will be accompanied by the source repository, build and run instructions, player-facing control and gameplay instructions, design and specification documents, and the final project report. Playtest records and analysis will describe whether testers formed different builds and changed decisions in response to rewards or route options, including limitations and unresolved issues. CPSC 490 establishes the proposal and prototype foundation; the broader implementation is planned for CPSC 491. Windows packaging and minimum hardware requirements will be confirmed through standalone-build testing.
 
-〈**One or two paragraphs** explaining the project outcome overall — what will
-exist when the project is finished, and what it will let someone do. Keep it
-prose, not a checklist; name the deliverables inside the paragraphs, and say
-briefly what prototype v0 demonstrates today and how to run it.〉
+The current prototype provides separate movement/traversal and combat demonstrations in `develop`, documented by merged PRs [#44](https://github.com/austin2578/CPSC490-G18-ProStrats/pull/44) and [#45](https://github.com/austin2578/CPSC490-G18-ProStrats/pull/45). To inspect them, clone the repository, select an up-to-date `develop` checkout containing those changes, add `prototype/ProjectRogue` to Unity Hub, and open it in Unity 6000.3.25f1. Open `Assets/Scenes/TraversalRoom.unity` and enter Play mode for traversal, or `Assets/Scenes/Test_Combat.unity` for combat; combat uses J for a basic attack, K for an active ability, and M to cycle test loadouts. The merged PRs record movement, traversal, resource, cooldown, scaling, and target-defeat checks. These foundations do not yet demonstrate a complete end-to-end run: attribute scaffolding, unfinished element effects, projectile-wall behavior, and integration with encounters, progression, and routing remain work. A tested standalone Windows release and the full playtest study are intended deliverables rather than established results of these Editor demonstrations.
 
 ## 6. Project Timeline
 
