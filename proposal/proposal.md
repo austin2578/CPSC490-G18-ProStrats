@@ -152,7 +152,7 @@ The [system overview](../docs/design/system-overview.md) contains editable diagr
 | [Development plan](../docs/development-plan.md) | Working agreement | Responsibilities, workflow, and risks | Existing; risk register needs revision |
 | [Sprint 1 review](../docs/sprint-reviews/sprint-1.md) | Progress evidence | Completed increments, limitations, and carry-over | Existing; carry-over details require confirmation |
 
-The course example specification and design are reference material, not Project Rogue specifications. Feature specifications must define acceptance checks, dependencies, and scope before dependent implementation. The planned `docs/testing/playtest-protocol.md` will contain consistent tester instructions, recording fields, and an analysis plan. It is not yet available in this checkout and is tracked by [[task:#48]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/48).
+The course example specification and design are reference material, not Project Rogue specifications. Feature specifications must define acceptance checks, dependencies, and scope before dependent implementation. The [playtest protocol](../docs/testing/playtest-protocol.md), tracked by [[task:#48]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/48), defines readiness requirements, consistent tester instructions, a session recording template, follow-up questions, and an analysis plan for Objective 3.3. This document prepares the study; conducting at least five full-study sessions and reporting their results remain part of [[story:#41]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/41).
 
 ### Planned activities — the work items
 
