@@ -5,67 +5,8 @@
 
 **Group 18 — ProStrats (Procrastination Strategies)** · Sponsor: independent  
 Authors: Monroe, Austin (austin2578), Truong, Brady (Ztaco10), Brodersen, Kimberly (Kmbroders), Armenta, Maximiliano (MaxArmenta-04), Bumatay, Rebekah (r1beka)  
-Date: 2026-10-04
-
-> **This file is the proposal document, not a README.** Its section numbers,
-> titles, and guidance are copied from the course Word template, so it
-> converts cleanly for Canvas submission. Write continuous academic prose —
-> no task lists, no emoji, no repo jargon.
->
-> Each section below opens with the template's own guidance in a quote block.
-> **Delete the quote blocks and every 〈bracket〉 before submitting.**
->
-> **Getting this into the Word template for Canvas.** The template numbers
-> its headings **automatically** (a multilevel list: top-level sections at
-> level 1, *Related Work* and *Problem Statements* at level 2). The numbers
-> typed below exist so the repo copy is readable and checkable — so when you
-> move the text into Word, do not end up with both sets.
->
-> The reliable route, and the one most teams should use: **open the course
-> template and paste your prose section by section**, leaving Word's own
-> numbering to do the numbering. Ten minutes, no surprises.
->
-> If you prefer to convert, `pandoc` can do it (install with
-> `winget install pandoc`):
->
->     pandoc proposal/proposal.md -o proposal.docx --reference-doc="CPSC 490 Project Proposal Template Fall 2026.docx"
->
-> Then in Word: delete the typed `0.` / `1.` / `1.1` prefixes (Word re-adds
-> them from the list), and set *Related Work* and *Problem Statements* to the
-> template's level-2 heading so they number as 1.1 and 1.2. Check figure
-> placement, then submit.
->
-> **Formatting requirements — the submitted Word document is graded against
-> these, explicitly:**
->
-> - **Cover page: use the template's cover page, unchanged in layout.** Fill
->   in only its fields — project title, group number and name, sponsor,
->   authors, date — and keep the template's own placement, fonts and spacing
->   for it. The header block at the top of this file carries the same fields
->   so the paste is a transcription, not a redesign.
-> - **Font: Times New Roman, 11-point.** Body text, headings and captions
->   take their size and style from the template's own styles — do not
->   restyle anything by hand.
-> - **Line spacing: 1.5.** **Margins: 1.0 inch** on all four sides.
-> - **Section format, numbering and indentation must match the Word template
->   exactly** — the multilevel-list numbering, heading levels, and paragraph
->   indentation are the template's, not yours. If your document's §1.1 looks
->   different from the template's §1.1, fix yours.
-> - **Length: the Final Project Proposal Paper (due Sun Dec 20) must exceed
->   50 pages** under exactly this formatting — font, spacing and margins are
->   fixed above precisely so page count means the same thing for every team.
->   The Preview paper (due Sun Nov 29) is the same document part-way; it has
->   no minimum, but it is graded on the same formatting.
->
-> A paste into the template inherits all of this automatically **if you paste
-> as text and let Word's styles apply** (Home → Paste → *Keep Text Only*, or
-> apply the template's styles after pasting). A pandoc conversion with
-> `--reference-doc` inherits it too — but verify font, spacing and margins
-> afterward rather than assuming.
->
-> Either way, keep this Markdown copy current — it is what peer review and CI
-> can actually read. If your team writes in Word instead, commit the `.docx`
-> here as well.
+Repository: https://github.com/austin2578/CPSC490-G18-ProStrats  
+Date: 2026-10-11
 
 ---
 
@@ -123,8 +64,6 @@ The gameplay design brief supplies this intended direction; it does not establis
 
 ### 1.2 Problem Statements
 
-> Briefly state the problem to solve in this project.
-
 P1. Build variety in roguelites can collapse when class choice locks players into a narrow set of options or when a few weapon builds dominate, which weakens replayability.  
 P2. Fully random level generation tends to lose the quality of designed encounters, while fully authored levels lose variety; a run needs structured randomness that preserves both.  
 P3. Weapon progression that relies on a single mechanism becomes predictable, so progression needs several interacting layers that remain understandable and balanceable.
@@ -137,48 +76,37 @@ is what the final project report is graded against.
 
 | Problem | Addressed by |
 |---|---|
-| P1 Build Variety and class lock-in | 〈Goal 1 (#n)〉 |
-| P2 Structured randomness versus authored quality | 〈Goal 2 (#n)〉 |
-| P3 Predictable weapon progression | 〈Goal 3 (#n)〉 |
+| P1 Build Variety and class lock-in | Goal 1 - Flexible character progression [[epic:#29]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/29); Goal 2 - Action gameplay [[epic:#30]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/30) |
+| P2 Structured randomness versus authored quality | Goal 3 - Replayable run structure [[epic:#31]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/31) |
+| P3 Predictable weapon progression | Goal 1 - Flexible character progression [[epic:#29]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/29); Goal 2 - Action gameplay [[epic:#30]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/30) |
 
 ## 2. Goals and Objectives
-> Describe goals and objectives. Goals are general statements of what you are
-> trying to accomplish with the project or problems to solve. Objectives are
-> specific, measurable statements of what you want to complete to reach the
-> project goals. Most projects have 2-3 goals.
->
-> List the objectives for each goal. To write objectives, look at the goal
-> statement and list what you need to complete using action words like use
-> case names in order to meet the goal.
->
-> Note that the goals and objectives in a proposal will be an important
-> metric to evaluate whether or not you successfully finished your project
-> when you turn in your final project report.
 
-Each **goal** is tracked as an **Epic** issue and each **objective** as a
-**User Story** issue in the team repository (see the setup guide's *Epics and user stories* section).
-**Every epic and user story in the repository is linked from this section** —
-CI gate G8 fails if one exists that this section does not link. That is what
-keeps the goals in this document and the work on the board from drifting
-apart.
+**Goal 1: Flexible character progression** [[epic:#29]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/29)
 
-Write each objective the way the guidance above asks — **an action word plus
-the measure that says it is done**, not a role-play sentence:
+Objective 1.1: Classes - Implement at least three starting classes with distinct starting attribute and resource profiles and one class-specific traversal or utility capability each, while allowing every class to equip any weapon family. [[story:#32]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/32)
 
-- **Goal 1: 〈e.g. Secure account management〉** (Epic #〈n〉)
-  - Objective 1.1: 〈Implement member registration and login with hashed
-    credentials, session expiry, and rejection of malformed input.〉 (#〈n〉)
-  - Objective 1.2: 〈Demonstrate the login round-trip in a runnable prototype
-    at the Week-8 in-class check.〉 (#〈n〉)
-- **Goal 2: 〈your second goal〉** (Epic #〈n〉)
-  - Objective 2.1: 〈Action word + what you will complete + how it will be
-    measured〉 (#〈n〉)
+Objective 1.2: Attributes/resources/respec - Implement five primary attributes (Vigor, Strength, Dexterity, Mind, and Constitution), Health, Stamina, and Mana resources, run-local leveling that awards three Attribute Points per level, and a respec process that returns and allows reassignment of invested Attribute Points. [[story:#33]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/33)
 
-〈Replace the brackets with your own 2–3 goals and their objectives, and put
-the **real issue numbers** in as you file them — gate G8 checks that every
-epic and story in your repository is linked from this section. A fully worked
-version of this, with live issues and a populated board, is in the course
-example repository.〉
+Objective 1.3: Weapons/Mastery/affixes/skills - Implement a weapon progression system that supports one active weapon at a time, weapon replacement during a run, S/A/B/C/D/E attribute scaling, weapon-family Mastery retained across same-family weapon replacements, randomized affixes, and up to three equipped active weapon skills. [[story:#34]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/34)
+
+Objective 1.4: Boons/status/build interactions - Implement a shared boon, effect, and status system that can modify attacks, resources, and status effects, demonstrate at least four distinct build interactions, and track effect sources and proc depth to prevent uncontrolled recursive effect loops. [[story:#35]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/35)
+
+**Goal 2: Action gameplay** [[epic:#30]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/30)
+
+Objective 2.1: Movement/traversal - Implement horizontal movement, jumping, gravity and ground detection, and class-specific traversal utilities, and demonstrate these mechanics in at least one handcrafted traversal room that the player can complete from entrance to exit. [[story:#36]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/36)
+
+Objective 2.2: Combat/damage/abilities - Implement a shared combat pipeline in which basic attacks and active abilities apply damage scaling and resource costs, allowing the player to damage and defeat a target using at least one basic attack and one active ability. [[story:#37]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/37)
+
+Objective 2.3: Enemies/encounters - Implement at least three enemy encounter configurations in which enemies can engage the player, attack through the shared combat systems, take damage, die, and trigger encounter completion and rewards. [[story:#38]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/38)
+
+**Goal 3: Replayable run structure** [[epic:#31]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/31)
+
+Objective 3.1: Branching three-Act map + handcrafted rooms - Implement a branching three-Act route graph with at least two route choices in each Act, where selected nodes load handcrafted rooms and progression moves forward without fast-travel backtracking. [[story:#39]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/39)
+
+Objective 3.2: Node/reward/run progression - Implement at least four node or reward types and run-local tracking for Gold, XP and Attribute Points, and Mastery, with completed nodes granting rewards that can affect later build or route decisions. [[story:#40]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/40)
+
+Objective 3.3: Playtest build variety/decision-making - Conduct at least five playtest sessions that record class, weapon, route, and build choices, then summarize whether testers produced distinct builds and changed decisions in response to rewards or route options. [[story:#41]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/41)
 
 ## 3. Proposed Approaches
 
