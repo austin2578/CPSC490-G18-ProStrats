@@ -149,6 +149,8 @@ The [system overview](../docs/design/system-overview.md) contains editable diagr
 | Document | Kind | Covers | Status |
 |---|---|---|---|
 | [System overview](../docs/design/system-overview.md) | Design draft | Progression, action gameplay, and run structure from §2 | Proposed architecture and context views for team review |
+| [Starting playable class diagram](../docs/design/combat-class-diagram.md) | Design documentation | Planned Knight/Mage/Thief/Archer starting profiles, identity passives, and unrestricted later builds for #29/#32; [[task:#60]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/60) | Local draft for human review; values and passive effects remain open |
+| [Prototype setup and test guide](../prototype/README.md) | Prototype documentation | Unity setup, combat/traversal checks, Windows build steps, and limitations; [[task:#59]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/59) | Local draft for human review |
 | [Development plan](../docs/development-plan.md) | Working agreement | Responsibilities, workflow, and risks | Existing; risk register needs revision |
 | [Sprint 1 review](../docs/sprint-reviews/sprint-1.md) | Progress evidence | Completed increments, limitations, and carry-over | Existing; carry-over details require confirmation |
 
