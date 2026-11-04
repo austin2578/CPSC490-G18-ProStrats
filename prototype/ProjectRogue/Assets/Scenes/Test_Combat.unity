@@ -134,6 +134,12 @@ GameObject:
   - component: {fileID: 642987599}
   - component: {fileID: 642987601}
   - component: {fileID: 642987600}
+  - component: {fileID: 642987607}
+  - component: {fileID: 642987606}
+  - component: {fileID: 642987605}
+  - component: {fileID: 642987604}
+  - component: {fileID: 642987603}
+  - component: {fileID: 642987602}
   m_Layer: 6
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -311,7 +317,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642987594}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd825511a0def9c428df942cff1320af, type: 3}
   m_Name: 
@@ -344,6 +350,121 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &642987602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642987594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7817d37d101452e831dcd60bb16e69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectRogue.Movement.PlayerMovementInput
+  actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!114 &642987603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642987594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc3ec0bec5f4a1598efd74b57a0615f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectRogue.Movement.PlayerMovement
+  moveSpeed: 6
+  acceleration: 50
+  jumpSpeed: 11
+  jumpHeightMigrated: 0
+  jumpHeight: 2.055
+  gravityScale: 3
+  maxFallSpeed: 20
+  groundDistance: 0.06
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!70 &642987604
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642987594}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!114 &642987605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642987594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413e715101447364b9671e24fde42076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestWeaponSwapper
+  weapons:
+  - {fileID: 11400000, guid: 26572702e6b2b5147af5d0b41a1ef773, type: 2}
+  - {fileID: 11400000, guid: 3b7be7f9493239843acb7ed714011ab9, type: 2}
+  - {fileID: 11400000, guid: f74547072216d72429194e629c12780c, type: 2}
+  - {fileID: 11400000, guid: e6e9dd9b23db543438a9e91ea3d2faa5, type: 2}
+--- !u!114 &642987606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642987594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9c31df90c304749b5b3bfb9bb134c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MasteryTracker
+--- !u!114 &642987607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642987594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e622d28a6c30e364ca1e0a928ea9af7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentManager
+  startingWeapon: {fileID: 11400000, guid: 26572702e6b2b5147af5d0b41a1ef773, type: 2}
 --- !u!1 &814332309
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bce5dec6c00a3141ae5b45d468d99e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 500
+  maxHealth: 2000
   destroyOnDeath: 1
 --- !u!61 &814332311
 BoxCollider2D:

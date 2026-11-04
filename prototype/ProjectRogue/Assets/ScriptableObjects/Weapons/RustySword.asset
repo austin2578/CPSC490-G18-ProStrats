@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c73753c69dcd747b57093b8a075a6a, type: 3}
+  m_Name: RustySword
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: RustySword
+  family: 0
+  baseDamage: 10
+  attackSpeed: 1
+  scaling:
+  - attribute: 1
+    grade: 5
+  - attribute: 2
+    grade: 5
+  basicAttack: {fileID: 11400000, guid: e39ec13ff7e287c4aa1302d24c56de50, type: 2}
+  skills:
+  - {fileID: 11400000, guid: a0c22744cb0025d40b73b0b0eb2d0456, type: 2}
+  - {fileID: 11400000, guid: 718508f3fd805474cb02190067b4b57d, type: 2}
+  - {fileID: 11400000, guid: c42b430d3da300a4285b5a3681f3a3ce, type: 2}
+  affixPool: []
+  minAffixes: 1
+  maxAffixes: 3
