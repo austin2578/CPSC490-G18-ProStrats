@@ -23,23 +23,39 @@ each one then becomes a test almost verbatim.
 | FR-3 | When the player..., the system shall .... | #39 |
 | FR-4 | When the player earns a reward, the system shall offer a selection of rewards for the player to choose from. | #40 |
 | FR-5 | When the player earns or spends gold, the system shall update and keep track of the player's total gold in that run. | #40 |
-| FR-5 | When the player levels up, the system shall apply level-up rewards. | #40 |
-| FR-6 | When <>, the system shall <>. | #41 |
+| FR-6 | When the player levels up, the system shall apply level-up rewards. | #40 |
+| FR-7 | When <>, the system shall <>. | #41 |
 
 ## Non-functional requirements
 
 | ID | Requirement | Why it matters here |
 |---|---|---|
-| NFR-1 | Passwords are stored only as salted hashes, never in plaintext or reversible form. | The prototype will be read by the sponsor and the instructor. |
-| NFR-2 | Failure responses for unknown-account and wrong-password are byte-identical. | Distinguishing them leaks which addresses are registered (see FR-4). |
-| NFR-3 | Sign-in responds in under 500 ms on the demo dataset. | The Week-8 check is a live demo. |
+| NFR-1 | .... | .... |
+| NFR-2 | .... | .... |
+| NFR-3 | .... | .... |
 
 ## Acceptance criteria (epic level)
 
-- [ ] A member can register, sign in, and sign out through the served
-      interface — by tapping, not by calling functions in a console.
-- [ ] FR-1 … FR-5 each have a test that fails if the behaviour is removed.
-- [ ] No plaintext password appears anywhere in the repository or its history.
+- [ ] (3.1) A run is divided into three Acts.
+- [ ] (3.1) Each Act provides at least two route choices.
+- [ ] (3.1) Route choices are represented as connected nodes.
+- [ ] (3.1) Selected nodes load handcrafted rooms
+- [ ] (3.1) Completed rooms advance the run through the selected route.
+- [ ] (3.1) Fast-travel backtracking to completed nodes is not supported.
+- [ ] (3.2) At least four distinct node or reward types are defined.
+- [ ] (3.2) Gold is tracked during a run.
+- [ ] (3.2) XP and Attribute Points are tracked during a run.
+- [ ] (3.2) Mastery progression is tracked during a run.
+- [ ] (3.2) Completing nodes can grant configured rewards.
+- [ ] (3.2) Rewards can influence later build or route decisions.
+- [ ] (3.3) At least five playtest sessions are completed.
+- [ ] (3.3) Starting class is recorded for each session.
+- [ ] (3.3) Weapon choices and weapon replacements are recorded.
+- [ ] (3.3) Route choices are recorded.
+- [ ] (3.3) Major build choices are recorded.
+- [ ] (3.3) Changes made in response to rewards or route options are recorded.
+- [ ] (3.3) Results are summarized to evaluate build variety and decision-making.
+- [ ] FR-1 … FR-7 each have a test that fails if the behaviour is removed.
 - [ ] `python .github/scripts/check_repo.py` is green and the prototype's
       tests pass.
 
@@ -47,8 +63,8 @@ each one then becomes a test almost verbatim.
 
 | Question | Owner | Needed by |
 |---|---|---|
-| Does the sponsor require campus SSO instead of local accounts? | 〈name〉 | Sprint 2 planning |
-| Is a 24-hour session acceptable, or does the sponsor mandate shorter? | 〈name〉 | before FR-5 is implemented |
+| ...? | 〈name〉 | Sprint 2 planning |
+| ...? | 〈name〉 | before FR-5 is implemented |
 
 *Open questions belong in the document, not in someone's memory. An
 assistant asked to "finish the spec" will invent answers to these — that is
