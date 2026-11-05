@@ -34,5 +34,10 @@ public class ResourcePool : MonoBehaviour
         Mana -= cost;
         return true;
     }
-    void OnGUI() { GUI.Label(new Rect(10, 10, 300, 20), $"Stamina {Stamina:0} Mana {Mana:0}"); }
+void OnGUI()
+{
+    var style = new GUIStyle(GUI.skin.label) { fontSize = 22 };
+    GUI.Label(new Rect(10, 10, 600, 100),
+        $"Stamina {Stamina:0} / {maxStamina:0}\nMana {Mana:0} / {maxMana:0}", style);
+}
 }
