@@ -1,0 +1,138 @@
+// Project Rogue - run, room, and reward flow
+// Editable source for docs/design/diagrams/run-room-reward-flow.svg
+// Source of truth for the design: Team Gameplay Design Brief v0.2.
+//
+// Export (Graphviz):
+//   dot -Tsvg run-room-reward-flow.dot -o run-room-reward-flow.svg
+//
+// Conventions (also explained in docs/design/run-room-reward-flow.md)
+//   solid box / arrow   = stated in the design brief
+//   dashed box / arrow  = PLANNED: inferred from the brief, needs team review
+//   Q# tag              = unresolved question, listed in the markdown doc
+// Every arrow label names the action or condition that triggers the transition.
+
+digraph RunRoomRewardFlow {
+  graph [rankdir=TB, compound=true, nodesep=0.55, ranksep=0.7, pad=0.35,
+         fontname="Helvetica,Arial,sans-serif", fontsize=18,
+         labelloc=t, labeljust=l,
+         label=<<B>Project Rogue: run, room, and reward flow</B><BR ALIGN="LEFT"/> <BR ALIGN="LEFT"/>>];
+
+  node  [shape=box, style="rounded,filled", fillcolor="#E8EEF7", color="#44546A", fontcolor="#1B2430",
+         fontname="Helvetica,Arial,sans-serif", fontsize=12, margin="0.20,0.13", penwidth=1.4];
+  edge  [color="#44546A", fontcolor="#1B2430", fontname="Helvetica,Arial,sans-serif",
+         fontsize=10.5, arrowsize=0.8, penwidth=1.3];
+
+  // ---------------------------------------------------------------- run start
+  start [style="rounded,filled", fillcolor="#44546A", color="#44546A",
+         label=<<FONT COLOR="white"><B>Start run</B></FONT>>];
+
+  init [label=<<B>Initialize run</B><BR/>
+        &#8226; Pick a class and a starting passive<BR ALIGN="LEFT"/>
+        &#8226; Set class baseline and meta upgrades<BR ALIGN="LEFT"/>>];
+
+  // ----------------------------------------------------------------- act loop
+  enter_act [label=<<B>Enter Act N (1 to 3)</B><BR/>
+        Entrance room<BR/>>];
+
+  reveal [label=<<B>Reveal map</B><BR/>
+        Partially revealed, open any time<BR/>>];
+
+  choose [ordering=out, label=<<B>Choose a connected node</B><BR/>
+        &#8226; Each reachable node is a door<BR ALIGN="LEFT"/>
+        &#8226; Choosing a door commits to that branch<BR ALIGN="LEFT"/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><B>Q1</B>: which room types are included?</FONT><BR ALIGN="LEFT"/>>];
+
+  // --------------------------------------------------------------- encounter
+  subgraph cluster_encounter {
+    graph [style="rounded", color="#8794A8", penwidth=1.3, labeljust=l, fontsize=11,
+           fontname="Helvetica,Arial,sans-serif", margin=16,
+           label=<<B>Encounter</B>>];
+
+    r_combat    [label=<<B>Combat</B><BR/>Standard, Elite<BR/>>];
+    r_challenge [label=<<B>Challenge</B><BR/>Puzzle, Traversal, Trial<BR/>>];
+    r_loot      [label=<<B>Loot &amp; choice</B><BR/>Treasure, Event, Secret<BR/>>];
+    r_service   [label=<<B>Service</B><BR/>Shop, Rest, Forge<BR/>>];
+    r_boss      [label=<<B>Boss</B><BR/>Act climax<BR/>>];
+  }
+
+  complete [style="rounded,filled,dashed", fillcolor="#F7F9FC",
+        label=<<B>Encounter complete</B><BR/>
+        Exits unlock<BR/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><I>PLANNED</I></FONT><BR/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><B>Q2</B>: locked until now?</FONT><BR/>>];
+
+  rewards [label=<<B>Receive rewards &amp; update progression</B><BR/>
+        &#8226; XP (level-up gives 3 Attribute Points)<BR ALIGN="LEFT"/>
+        &#8226; Gold<BR ALIGN="LEFT"/>
+        &#8226; Mastery Points (milestone encounters only)<BR ALIGN="LEFT"/>
+        &#8226; Loot and boons<BR ALIGN="LEFT"/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><B>Q3</B>: fixed drop or pick-one?</FONT><BR ALIGN="LEFT"/>>];
+
+  explore [label=<<B>Explore room (optional)</B><BR/>
+        Secrets can add a node or exit<BR/>>];
+
+  boss_check [shape=diamond, style="filled", margin="0.05,0.05",
+        label=<<B>Act boss<BR/>room?</B>>];
+
+  next_routes [label=<<B>Reveal next routes</B><BR/>
+        New reachable nodes appear<BR/>>];
+
+  final_check [shape=diamond, style="filled,dashed", fillcolor="#F7F9FC", margin="0.05,0.05",
+        label=<<B>Final Act<BR/>(Act 3)?</B><BR/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><I>PLANNED</I></FONT>>];
+
+  // ------------------------------------------------------------ run end states
+  run_complete [style="rounded,filled,dashed", fillcolor="#F7F9FC",
+        label=<<B>Run complete</B><BR/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><I>PLANNED</I></FONT><BR/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><B>Q4</B>: does the Act 3 boss end it?</FONT><BR/>>];
+
+  defeat [style="rounded,filled,dashed", fillcolor="#FBE9E7", color="#B03A2E",
+        label=<<B>Player defeated</B><BR/>
+        Health reaches 0<BR/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><I>PLANNED</I></FONT><BR/>>];
+
+  summary [style="rounded,filled,dashed", fillcolor="#F7F9FC",
+        label=<<B>Run summary</B><BR/>
+        &#8226; Keeps: meta currency, unlocks<BR ALIGN="LEFT"/>
+        &#8226; Resets: all other run progress<BR ALIGN="LEFT"/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><I>PLANNED</I></FONT><BR ALIGN="LEFT"/>
+        <FONT COLOR="#8A5A00" POINT-SIZE="10"><B>Q5</B>: what exactly persists or resets?</FONT><BR ALIGN="LEFT"/>>];
+
+  // -------------------------------------------------------------------- edges
+  start     -> init      [label="new run"];
+  init      -> enter_act [label="begin Act 1"];
+  enter_act -> reveal    [label="spawn"];
+  reveal    -> choose    [label="open map"];
+
+  choose -> r_combat    [label="Standard / Elite"];
+  choose -> r_challenge [label="Puzzle / Traversal / Trial"];
+  choose -> r_loot      [label="Treasure / Event / Secret"];
+  choose -> r_service   [label="Shop / Rest / Forge"];
+  choose -> r_boss      [label="Boss"];
+
+  r_combat    -> complete [label="enemies cleared"];
+  r_challenge -> complete [label="challenge finished", style=dashed];
+  r_loot      -> complete [label="reward taken or\nchoice made", style=dashed];
+  r_service   -> complete [label="player leaves", style=dashed];
+  r_boss      -> complete [label="boss defeated"];
+
+  r_boss -> defeat [ltail=cluster_encounter, label="Health reaches 0",
+                    color="#B03A2E", fontcolor="#B03A2E", style=dashed];
+
+  complete -> rewards     [label="rewards granted"];
+  rewards  -> explore     [label="optional", style=dashed];
+  rewards  -> boss_check  [label="progression updated"];
+  explore  -> next_routes [label="secret found", style=dashed];
+
+  boss_check  -> next_routes  [label="No"];
+  boss_check  -> final_check  [label="Yes"];
+  final_check -> run_complete [label="Yes", style=dashed];
+
+  // Loop edges use side ports so they run down the page edge, nested without crossing.
+  final_check -> enter_act  [label="No: next Act", constraint=false, tailport=e, headport=e];
+  next_routes -> choose     [label="pick a door", constraint=false, tailport=e, headport=e];
+
+  run_complete -> summary [label="victory", style=dashed];
+  defeat       -> summary [label="defeat", style=dashed, color="#B03A2E", fontcolor="#B03A2E"];
+}
