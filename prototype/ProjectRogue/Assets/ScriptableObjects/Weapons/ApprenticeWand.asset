@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c73753c69dcd747b57093b8a075a6a, type: 3}
+  m_Name: ApprenticeWand
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: ApprenticeWand
+  family: 2
+  baseDamage: 8
+  attackSpeed: 1
+  scaling:
+  - attribute: 3
+    grade: 0
+  - attribute: 2
+    grade: 5
+  basicAttack: {fileID: 11400000, guid: e687fcd7c9651c54c9ff4391bc989098, type: 2}
+  skills:
+  - {fileID: 11400000, guid: c901f653016d0ff4f914ed44e264e27d, type: 2}
+  affixPool:
+  - {fileID: 11400000, guid: c7a6c190f3c51c64a8f66a9af1405166, type: 2}
+  - {fileID: 11400000, guid: 6a1f57eab78af724d96a85651431c05f, type: 2}
+  - {fileID: 11400000, guid: 0824f5cfbe04dfb4cb14e06e7d45cbe3, type: 2}
+  - {fileID: 11400000, guid: 8c57689b9767c164fb34e0139476b86b, type: 2}
+  minAffixes: 1
+  maxAffixes: 3

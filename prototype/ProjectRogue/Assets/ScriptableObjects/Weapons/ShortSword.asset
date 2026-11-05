@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c73753c69dcd747b57093b8a075a6a, type: 3}
+  m_Name: ShortSword
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: ShortSword
+  family: 0
+  baseDamage: 10
+  attackSpeed: 1
+  scaling:
+  - attribute: 1
+    grade: 1
+  - attribute: 2
+    grade: 3
+  basicAttack: {fileID: 11400000, guid: e39ec13ff7e287c4aa1302d24c56de50, type: 2}
+  skills:
+  - {fileID: 11400000, guid: a0c22744cb0025d40b73b0b0eb2d0456, type: 2}
+  - {fileID: 11400000, guid: 718508f3fd805474cb02190067b4b57d, type: 2}
+  - {fileID: 11400000, guid: c42b430d3da300a4285b5a3681f3a3ce, type: 2}
+  affixPool:
+  - {fileID: 11400000, guid: c7a6c190f3c51c64a8f66a9af1405166, type: 2}
+  - {fileID: 11400000, guid: 6a1f57eab78af724d96a85651431c05f, type: 2}
+  - {fileID: 11400000, guid: 0824f5cfbe04dfb4cb14e06e7d45cbe3, type: 2}
+  - {fileID: 11400000, guid: 8c57689b9767c164fb34e0139476b86b, type: 2}
+  minAffixes: 1
+  maxAffixes: 3
