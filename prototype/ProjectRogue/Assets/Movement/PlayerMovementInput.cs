@@ -11,13 +11,13 @@ namespace ProjectRogue.Movement
         private InputAction move;
         private InputAction jump;
         private InputAction utility;
-        private WeaponTraversal traversal;
+        private ClassTraversal traversal;
         private PlayerMovement movement;
 
         private void OnEnable()
         {
             movement = GetComponent<PlayerMovement>();
-            traversal = GetComponent<WeaponTraversal>();
+            traversal = GetComponent<ClassTraversal>();
             if (actions == null)
             {
                 Debug.LogError("Assign the team's input action asset before enabling movement input.", this);
