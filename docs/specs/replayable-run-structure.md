@@ -21,7 +21,6 @@
 | FR-4 | When the player earns a reward, the system shall offer a selection of rewards for the player to choose from. | #40 |
 | FR-5 | When the player earns or spends gold, the system shall update and keep track of the player's total gold in that run. | #40 |
 | FR-6 | When the player levels up, the system shall apply level-up rewards. | #40 |
-| FR-7 | When <>, the system shall <>. | #41 |
 
 ## Non-functional requirements
 
@@ -62,7 +61,3 @@
 |---|---|---|
 | ...? | 〈name〉 | Sprint 2 planning |
 | ...? | 〈name〉 | before FR-5 is implemented |
-
-*Open questions belong in the document, not in someone's memory. An
-assistant asked to "finish the spec" will invent answers to these — that is
-exactly the fabrication the review gate is looking for.*
