@@ -21,7 +21,7 @@ namespace ProjectRogue.Movement
         private CapsuleCollider2D capsule;
         private float horizontalInput;
         private bool jumpRequested;
-        private WeaponTraversal traversal;
+        private ClassTraversal traversal;
         public int FacingSign { get; private set; } = 1;
 
         public bool IsGrounded { get; private set; }
@@ -36,7 +36,7 @@ namespace ProjectRogue.Movement
             }
             body = GetComponent<Rigidbody2D>();
             capsule = GetComponent<CapsuleCollider2D>();
-            traversal = GetComponent<WeaponTraversal>();
+            traversal = GetComponent<ClassTraversal>();
             body.bodyType = RigidbodyType2D.Dynamic;
             body.freezeRotation = true;
             body.gravityScale = gravityScale;
