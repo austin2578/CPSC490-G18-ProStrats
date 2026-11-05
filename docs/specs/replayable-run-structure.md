@@ -13,14 +13,11 @@
 
 ## Functional requirements
 
-Written in EARS form — "when 〈trigger〉, the system shall 〈response〉" — because
-each one then becomes a test almost verbatim.
-
 | ID | Requirement | Story |
 |---|---|---|
-| FR-1 | When the player exits a room, the system shall display the map and prompt for next room node selection. | #39 |
+| FR-1 | When the player starts an Act, the system shall display the map and prompt the player to select a route. | #39 |
 | FR-2 | When the player selects a new room node, the system shall load a handcrafted room. | #39 |
-| FR-3 | When the player..., the system shall .... | #39 |
+| FR-3 | When the player exits a room, the system shall not allow the player to return to it. | #39 |
 | FR-4 | When the player earns a reward, the system shall offer a selection of rewards for the player to choose from. | #40 |
 | FR-5 | When the player earns or spends gold, the system shall update and keep track of the player's total gold in that run. | #40 |
 | FR-6 | When the player levels up, the system shall apply level-up rewards. | #40 |
