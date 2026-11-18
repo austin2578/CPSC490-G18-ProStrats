@@ -2,7 +2,7 @@
 
 > Task: #76 | Owner: Max Armenta | Sprint: 3 | Status: draft
 
-This document shows the prototype UI screens for Project Rogue and explains what each one is for. Each screen is drawn at 1280 x 720. Items in [square brackets] are placeholders for content the team has not decided yet.
+This document shows the prototype UI screens for Project Rogue and explains what each one is for.
 
 ## Screens
 
