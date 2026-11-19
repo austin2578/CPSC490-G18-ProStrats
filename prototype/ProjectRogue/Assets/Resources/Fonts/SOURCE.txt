@@ -1,0 +1,12 @@
+Jersey 10 Regular
+Source: https://github.com/google/fonts/tree/main/ofl/jersey10
+Downloaded November 19, 2026 from Google Fonts' official repository.
+Jersey10-Regular.ttf SHA256:
+db9cbd091617048a145d249daa2b815fe7083be6ab66ac26626e21a4e01c3e82
+
+Copyright 2023 The Soft Type Project Authors
+https://github.com/scfried/soft-type-jersey
+SIL Open Font License 1.1: see the complete OFL.txt beside the font.
+
+This font is an approximate pixel-style match for the UI mockups. The original
+mockup font was not identified in the supplied design documentation.
