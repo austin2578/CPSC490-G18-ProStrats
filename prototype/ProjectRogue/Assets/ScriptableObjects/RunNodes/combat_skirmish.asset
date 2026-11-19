@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd023698bc18a4fad9383f475a251cfe, type: 3}
+  m_Name: combat_skirmish
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectRogue.Run.NodeDefinition
+  id: combat_skirmish
+  displayName: Skirmish
+  nodeType: 0
+  description: Clear the room of enemies.
+  entryRequirements: []
+  completionRewards:
+  - type: 0
+    min: 20
+    max: 30
+  - type: 1
+    min: 40
+    max: 0
+  choices: []
+  maxChoices: 1

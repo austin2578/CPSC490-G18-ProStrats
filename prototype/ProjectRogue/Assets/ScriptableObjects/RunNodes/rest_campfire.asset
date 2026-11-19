@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd023698bc18a4fad9383f475a251cfe, type: 3}
+  m_Name: rest_campfire
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectRogue.Run.NodeDefinition
+  id: rest_campfire
+  displayName: Campfire (Rest)
+  nodeType: 8
+  description: Recover, or take a free attribute respec.
+  entryRequirements: []
+  completionRewards: []
+  choices:
+  - label: Rest
+    description: 
+    goldCost: 0
+    requirements: []
+    rewards:
+    - type: 4
+      min: 50
+      max: 0
+    repeatable: 0
+  - label: Reflect (attribute respec)
+    description: 
+    goldCost: 0
+    requirements: []
+    rewards:
+    - type: 5
+      min: 1
+      max: 0
+    repeatable: 0
+  maxChoices: 1
