@@ -136,6 +136,10 @@ GameObject:
   - component: {fileID: 38436014}
   - component: {fileID: 38436013}
   - component: {fileID: 38436012}
+  - component: {fileID: 38436018}
+  - component: {fileID: 38436017}
+  - component: {fileID: 38436016}
+  - component: {fileID: 38436015}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -329,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec78a0be56554f91b3621466a411cda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectRogue.Movement.PrototypeLoadoutPanel
-  weaponIcons:
+  classIcons:
   - {fileID: 21300000, guid: a2d6e0c092e693248ac87b3c611a956c, type: 3}
   - {fileID: 21300000, guid: f1c475acbd8e7e3478416abf8882822f, type: 3}
   - {fileID: 21300000, guid: 05a8315414eea8e43b614959dcd97766, type: 3}
@@ -366,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e252adcf814992b0c0748955caf7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectRogue.Movement.WeaponTraversal
-  selectedWeapon: 0
+  selectedClass: 0
   dashDistance: 3
   dashSpeed: 15
   dashCooldown: 0.75
@@ -376,6 +380,75 @@ MonoBehaviour:
   hopSpeed: 8
   hopHeight: 1
   hopCooldown: 0.8
+--- !u!114 &38436015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38436005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b517e38de019e0429b89dd9a7158bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerClassController
+  availableClasses:
+  - {fileID: 11400000, guid: 137f8c933ee1fd343a6649cc9bd8d026, type: 2}
+  - {fileID: 11400000, guid: 8314c1e7371e2c048bf9a33dac909ffa, type: 2}
+  - {fileID: 11400000, guid: 74cf09e9192e41543acefbadc9e26a67, type: 2}
+  startingClassIndex: 0
+--- !u!114 &38436016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38436005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6764ae1798e2a6f4aab9a9c6fe6a7a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourcePool
+  maxStamina: 100
+  maxMana: 50
+  staminaRegenPerSec: 15
+  manaRegenPerSec: 3
+--- !u!114 &38436017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38436005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bce5dec6c00a3141ae5b45d468d99e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+  destroyOnDeath: 1
+--- !u!114 &38436018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38436005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdef465c7465baa4da35a35a07f4fc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttributeSet
+  baseVigor: 5
+  baseStrength: 5
+  baseDexterity: 5
+  baseMind: 5
+  baseConstitution: 5
+  investedVigor: 0
+  investedStrength: 0
+  investedDexterity: 0
+  investedMind: 0
+  investedConstitution: 0
 --- !u!1 &374025606
 GameObject:
   m_ObjectHideFlags: 0
