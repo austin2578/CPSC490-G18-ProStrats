@@ -5,7 +5,10 @@ using UnityEngine.InputSystem.UI;
 
 namespace ProjectRogue.Movement
 {
-    [RequireComponent(typeof(ClassTraversal), typeof(ElementPassives))]
+    [RequireComponent(
+        typeof(ClassTraversal),
+        typeof(ElementPassives),
+        typeof(PlayerClassController))]
     public sealed class PrototypeLoadoutPanel : MonoBehaviour
     {
         [FormerlySerializedAs("weaponIcons")]
@@ -15,19 +18,33 @@ namespace ProjectRogue.Movement
 
         private ClassTraversal traversal;
         private ElementPassives elements;
+        private PlayerClassController classController;
+
         private UnityEngine.UI.Text status;
         private GameObject canvasObject;
         private GameObject ownedEventSystem;
-        private readonly UnityEngine.UI.Image[] buttons = new UnityEngine.UI.Image[6];
+
+        private readonly UnityEngine.UI.Image[] buttons =
+            new UnityEngine.UI.Image[6];
+
         private Font font;
+
 
         private void Start()
         {
             traversal = GetComponent<ClassTraversal>();
             elements = GetComponent<ElementPassives>();
+            classController = GetComponent<PlayerClassController>();
 
-            font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            font = Resources.GetBuiltinResource<Font>(
+                "LegacyRuntime.ttf");
 
+            CreateInterface();
+        }
+
+
+        private void CreateInterface()
+        {
             canvasObject = new GameObject(
                 "Prototype Loadout",
                 typeof(RectTransform),
@@ -35,35 +52,86 @@ namespace ProjectRogue.Movement
                 typeof(UnityEngine.UI.CanvasScaler),
                 typeof(UnityEngine.UI.GraphicRaycaster));
 
-            canvasObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            Canvas canvas =
+                canvasObject.GetComponent<Canvas>();
 
-            var scaler = canvasObject.GetComponent<UnityEngine.UI.CanvasScaler>();
-            scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920, 1080);
+            canvas.renderMode =
+                RenderMode.ScreenSpaceOverlay;
+
+            canvas.sortingOrder = 20;
+
+            var scaler =
+                canvasObject.GetComponent<UnityEngine.UI.CanvasScaler>();
+
+            scaler.uiScaleMode =
+                UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
+
+            scaler.referenceResolution =
+                new Vector2(1920, 1080);
+
             scaler.matchWidthOrHeight = 0.5f;
 
+
+            // Main panel
             var panel = Rect(
                 "Panel",
                 canvasObject.transform,
-                new Vector2(20, -20),
-                new Vector2(650, 205));
+                Vector2.zero,
+                new Vector2(680, 260));
 
-            panel.gameObject.AddComponent<UnityEngine.UI.Image>().color =
-                new Color(0.08f, 0.1f, 0.14f, 0.95f);
+            // Anchor the entire panel to the TOP RIGHT.
+            panel.anchorMin = new Vector2(1f, 1f);
+            panel.anchorMax = new Vector2(1f, 1f);
+            panel.pivot = new Vector2(1f, 1f);
 
-            Label(
-                "Class",
+            panel.anchoredPosition =
+                new Vector2(-20f, -20f);
+
+            var panelBackground =
+                panel.gameObject
+                    .AddComponent<UnityEngine.UI.Image>();
+
+            panelBackground.color =
+                new Color(
+                    0.055f,
+                    0.065f,
+                    0.09f,
+                    0.96f);
+
+
+            // Header
+            UnityEngine.UI.Text title = Label(
+                "PROJECT ROGUE - LOADOUT",
                 panel,
-                new Vector2(12, -12),
-                new Vector2(80, 42),
+                new Vector2(18, -12),
+                new Vector2(640, 30),
                 20);
 
-            Label(
-                "Element",
+            title.fontStyle =
+                FontStyle.Bold;
+
+
+            // Row labels
+            UnityEngine.UI.Text classLabel = Label(
+                "CLASS",
                 panel,
-                new Vector2(12, -62),
-                new Vector2(80, 42),
-                20);
+                new Vector2(18, -55),
+                new Vector2(75, 35),
+                16);
+
+            classLabel.fontStyle =
+                FontStyle.Bold;
+
+            UnityEngine.UI.Text elementLabel = Label(
+                "ELEMENT",
+                panel,
+                new Vector2(18, -105),
+                new Vector2(75, 35),
+                16);
+
+            elementLabel.fontStyle =
+                FontStyle.Bold;
+
 
             string[] classes =
             {
@@ -79,6 +147,8 @@ namespace ProjectRogue.Movement
                 "Wind"
             };
 
+
+            // Buttons
             for (int i = 0; i < 3; i++)
             {
                 int index = i;
@@ -87,25 +157,56 @@ namespace ProjectRogue.Movement
                     classes[i],
                     classIcons[i],
                     panel,
-                    new Vector2(100 + i * 175, -10),
+                    new Vector2(
+                        105 + i * 180,
+                        -52),
                     i,
-                    () => traversal.SelectClass(index));
+                    () => classController.SelectClass(index));
 
                 MakeButton(
                     elementNames[i],
                     elementIcons[i],
                     panel,
-                    new Vector2(100 + i * 175, -60),
+                    new Vector2(
+                        105 + i * 180,
+                        -102),
                     i + 3,
                     () => elements.SelectElement(index));
             }
 
+
+            // Status background
+            var statusBackground = Rect(
+                "Status Background",
+                panel,
+                new Vector2(18, -158),
+                new Vector2(644, 84));
+
+            statusBackground.gameObject
+                .AddComponent<UnityEngine.UI.Image>()
+                .color = new Color(
+                    0.025f,
+                    0.03f,
+                    0.045f,
+                    0.95f);
+
+
             status = Label(
                 "",
-                panel,
-                new Vector2(14, -114),
-                new Vector2(620, 76),
-                18);
+                statusBackground,
+                new Vector2(12, -8),
+                new Vector2(620, 70),
+                15);
+
+            status.alignment =
+                TextAnchor.UpperLeft;
+
+            status.horizontalOverflow =
+                HorizontalWrapMode.Wrap;
+
+            status.verticalOverflow =
+                VerticalWrapMode.Overflow;
+
 
             if (FindFirstObjectByType<EventSystem>() == null)
             {
@@ -120,49 +221,92 @@ namespace ProjectRogue.Movement
             }
         }
 
+
         private void Update()
         {
             if (status == null)
                 return;
 
+            ClassKind selectedClass =
+                classController.CurrentClass != null
+                    ? classController.CurrentClass.classKind
+                    : traversal.SelectedClass;
+
+
+            // Button selection colors
             for (int i = 0; i < buttons.Length; i++)
             {
                 bool selected =
                     i < 3
-                        ? i == (int)traversal.SelectedClass
+                        ? i == (int)selectedClass
                         : i - 3 == (int)elements.SelectedElement;
 
-                buttons[i].color = selected
-                    ? new Color(0.18f, 0.4f, 0.55f)
-                    : new Color(0.17f, 0.2f, 0.25f);
+                buttons[i].color =
+                    selected
+                        ? new Color(
+                            0.18f,
+                            0.42f,
+                            0.58f)
+                        : new Color(
+                            0.12f,
+                            0.14f,
+                            0.19f);
             }
 
-            string effect =
-                elements.SelectedElement == ElementKind.Fire
-                    ? $"Fire placeholder: {elements.BurnTickDamage:g} damage/tick, every {elements.BurnTickInterval:g}s for {elements.BurnDuration:g}s"
-                    : elements.SelectedElement == ElementKind.Wind
-                        ? $"Wind placeholder: x{elements.AttackSpeedMultiplier:g} attack speed"
-                        : "Water: passive undecided (neutral placeholder)";
 
-            string ready =
+            string traversalText =
+                selectedClass == ClassKind.Mage
+                    ? "Airborne Shift: downward slam"
+                    : selectedClass == ClassKind.Thief
+                        ? "Grounded Shift: backward hop"
+                        : "Shift: forward dash";
+
+
+            string readyText =
                 traversal.IsUsingUtility
-                    ? "active"
+                    ? "ACTIVE"
                     : traversal.CooldownRemaining > 0
-                        ? $"cooldown {traversal.CooldownRemaining:0.0}s"
-                        : "ready";
+                        ? $"Cooldown {traversal.CooldownRemaining:0.0}s"
+                        : "Ready";
 
-            string actionHint =
-                traversal.SelectedClass == ClassKind.Mage
-                    ? "Mage - Jump, then Shift: slam"
-                    : traversal.SelectedClass == ClassKind.Thief
-                        ? "Thief - Shift on ground: backward hop"
-                        : "Knight - Shift: forward dash";
+
+            string elementText =
+                elements.SelectedElement == ElementKind.Fire
+                    ? "Fire - burn effect placeholder"
+                    : elements.SelectedElement == ElementKind.Wind
+                        ? "Wind - attack speed placeholder"
+                        : "Water - passive placeholder";
+
+
+            string profileText =
+                classController.CurrentClass != null
+                    ? BuildProfileText(
+                        classController.CurrentClass)
+                    : "No class profile selected.";
+
 
             status.text =
-                $"{actionHint} ({ready}) | W / Space: jump\n" +
-                $"{effect}\n" +
-                "Combat passives are data only; no damage or attack changes yet.";
+                $"{profileText}\n" +
+                $"Traversal: {traversalText} [{readyText}]\n" +
+                $"Element: {elementText}";
         }
+
+
+        private static string BuildProfileText(
+            ClassDefinition definition)
+        {
+            return
+                $"{definition.displayName}  |  " +
+                $"VIG {definition.vigor}   " +
+                $"STR {definition.strength}   " +
+                $"DEX {definition.dexterity}   " +
+                $"MND {definition.mind}   " +
+                $"CON {definition.constitution}  |  " +
+                $"HP {definition.maxHealth:0}   " +
+                $"STA {definition.maxStamina:0}   " +
+                $"MANA {definition.maxMana:0}";
+        }
+
 
         private static RectTransform Rect(
             string name,
@@ -170,105 +314,195 @@ namespace ProjectRogue.Movement
             Vector2 position,
             Vector2 size)
         {
-            var rect = new GameObject(
-                name,
-                typeof(RectTransform))
-                .GetComponent<RectTransform>();
+            RectTransform rect =
+                new GameObject(
+                    name,
+                    typeof(RectTransform))
+                    .GetComponent<RectTransform>();
 
-            rect.SetParent(parent, false);
-            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0, 1);
-            rect.anchoredPosition = position;
-            rect.sizeDelta = size;
+            rect.SetParent(
+                parent,
+                false);
+
+            rect.anchorMin =
+                new Vector2(0f, 1f);
+
+            rect.anchorMax =
+                new Vector2(0f, 1f);
+
+            rect.pivot =
+                new Vector2(0f, 1f);
+
+            rect.anchoredPosition =
+                position;
+
+            rect.sizeDelta =
+                size;
 
             return rect;
         }
 
+
         private UnityEngine.UI.Text Label(
             string text,
             Transform parent,
-            Vector2 pos,
+            Vector2 position,
             Vector2 size,
             int fontSize)
         {
-            var label = Rect(
-                "Label",
-                parent,
-                pos,
-                size)
-                .gameObject
-                .AddComponent<UnityEngine.UI.Text>();
+            UnityEngine.UI.Text label =
+                Rect(
+                    "Label",
+                    parent,
+                    position,
+                    size)
+                    .gameObject
+                    .AddComponent<UnityEngine.UI.Text>();
 
-            label.font = font;
-            label.fontSize = fontSize;
-            label.text = text;
-            label.color = Color.white;
-            label.raycastTarget = false;
+            label.font =
+                font;
+
+            label.fontSize =
+                fontSize;
+
+            label.text =
+                text;
+
+            label.color =
+                Color.white;
+
+            label.raycastTarget =
+                false;
 
             return label;
         }
+
 
         private void MakeButton(
             string name,
             Sprite sprite,
             Transform parent,
-            Vector2 pos,
+            Vector2 position,
             int index,
             UnityEngine.Events.UnityAction action)
         {
-            var rect = Rect(
+            RectTransform rect = Rect(
                 name,
                 parent,
-                pos,
-                new Vector2(165, 42));
+                position,
+                new Vector2(
+                    165,
+                    38));
 
-            var image =
-                rect.gameObject.AddComponent<UnityEngine.UI.Image>();
 
-            buttons[index] = image;
+            UnityEngine.UI.Image image =
+                rect.gameObject
+                    .AddComponent<UnityEngine.UI.Image>();
 
-            var button =
-                rect.gameObject.AddComponent<UnityEngine.UI.Button>();
+            buttons[index] =
+                image;
 
-            button.targetGraphic = image;
+
+            UnityEngine.UI.Button button =
+                rect.gameObject
+                    .AddComponent<UnityEngine.UI.Button>();
+
+            button.targetGraphic =
+                image;
+
             button.navigation =
                 new UnityEngine.UI.Navigation
                 {
-                    mode = UnityEngine.UI.Navigation.Mode.None
+                    mode =
+                        UnityEngine.UI.Navigation.Mode.None
                 };
 
-            button.onClick.AddListener(action);
+            button.onClick.AddListener(
+                action);
 
-            var icon = Rect(
+
+            // Icon
+            UnityEngine.UI.Image icon = Rect(
                 "Icon",
                 rect,
-                new Vector2(7, -5),
-                new Vector2(32, 32))
+                new Vector2(
+                    7,
+                    -4),
+                new Vector2(
+                    30,
+                    30))
                 .gameObject
                 .AddComponent<UnityEngine.UI.Image>();
 
-            icon.sprite = sprite;
+            icon.sprite =
+                sprite;
 
             icon.color =
-                index == 3
-                    ? new Color(1f, 0.35f, 0.08f)
-                    : index == 4
-                        ? new Color(0.15f, 0.6f, 1f)
-                        : index == 5
-                            ? new Color(0.55f, 0.95f, 0.75f)
-                            : index == 2
-                                ? new Color(0.75f, 0.55f, 0.32f)
-                                : new Color(0.85f, 0.87f, 0.9f);
+                GetIconColor(index);
 
-            icon.preserveAspect = true;
-            icon.raycastTarget = false;
+            icon.preserveAspect =
+                true;
 
-            Label(
+            icon.raycastTarget =
+                false;
+
+
+            UnityEngine.UI.Text buttonLabel = Label(
                 name,
                 rect,
-                new Vector2(48, -8),
-                new Vector2(110, 28),
-                20);
+                new Vector2(
+                    45,
+                    -6),
+                new Vector2(
+                    112,
+                    27),
+                17);
+
+            buttonLabel.alignment =
+                TextAnchor.MiddleLeft;
         }
+
+
+        private static Color GetIconColor(int index)
+        {
+            switch (index)
+            {
+                // Fire
+                case 3:
+                    return new Color(
+                        1f,
+                        0.35f,
+                        0.08f);
+
+                // Water
+                case 4:
+                    return new Color(
+                        0.15f,
+                        0.6f,
+                        1f);
+
+                // Wind
+                case 5:
+                    return new Color(
+                        0.55f,
+                        0.95f,
+                        0.75f);
+
+                // Thief
+                case 2:
+                    return new Color(
+                        0.75f,
+                        0.55f,
+                        0.32f);
+
+                default:
+                    return new Color(
+                        0.85f,
+                        0.87f,
+                        0.9f);
+            }
+        }
+
 
         private void OnDestroy()
         {
