@@ -10,6 +10,9 @@ public static class DebugInput
 {
     public static bool Pressed(DebugKey key)
     {
+        // Menu-owned pause must block actions even though Update still runs.
+        if (Time.timeScale <= 0f || (ProjectRogue.UI.MenuFlow.Instance != null &&
+            !ProjectRogue.UI.MenuFlow.Instance.GameplayInputAllowed)) return false;
 #if ENABLE_INPUT_SYSTEM
         Keyboard kb = Keyboard.current;
         if (kb == null) return false;
