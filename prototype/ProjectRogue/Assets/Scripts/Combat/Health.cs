@@ -27,6 +27,13 @@ public class Health : MonoBehaviour, IDamageable
         Current = maxHealth;
     }
 
+        public void Heal(float amount)
+    {
+        if (IsDead || amount <= 0f) return;
+        Current = Mathf.Min(maxHealth, Current + amount);
+        Debug.Log($"{name} healed {amount:0.#} ({Current:0.#}/{maxHealth})");
+    }
+
 
     public void TakeDamage(DamageInfo info)
     {
