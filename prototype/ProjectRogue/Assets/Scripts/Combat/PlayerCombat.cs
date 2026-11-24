@@ -49,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
     // Every attack, basic or skill, goes: cooldown check -> resource cost -> scaled damage -> hit.
     public bool TryUse(AbilityData ability)
     {
+        if (Time.timeScale <= 0f) return false;
         if (ability == null) return false;
         if (readyAt.TryGetValue(ability, out float t) && Time.time < t) return false;
         if (!resources.TrySpend(ability.resource, ability.cost)) return false;

@@ -1,5 +1,55 @@
 # Project Rogue prototype
 
+> Epic: #30 · Stories: #36, #37 · Menu implementation task: #79
+
+## Play the menu-enabled arena (issue #79)
+
+Open `ProjectRogue` with Unity **6000.3.25f1**, then open
+`Assets/Scenes/TitleScreen.unity`, press Play, and click the Game view.
+Choose **Start game** to load the playable arena. This is a direct-to-demo
+shortcut, not class selection or a complete run. The arena uses the shared
+movement and combat systems with three temporary melee enemies and an exit.
+It does not include the separate, unmerged boon/effect feature.
+
+| Input | Action |
+|---|---|
+| A/D or Left/Right | Move and face |
+| Space | Jump |
+| Left Shift | Dash |
+| J | Basic sword attack |
+| K | Arc strike, spending mana |
+| Escape | Pause; close Settings/confirmation; resume from Pause |
+| Up/Down or Tab / Shift+Tab | Navigate menu controls |
+| Enter or Space | Activate the focused button |
+| Left/Right on the volume slider | Adjust pending master volume |
+
+Defeat the three enemies and reach the green exit. Death or completion opens
+a result screen with Retry/Play again and Quit to Menu. Retry reloads the scene
+with fresh actors, health, resources and cooldowns. Pausing stops simulation and
+blocks gameplay input, including held keys when resuming; release gameplay keys
+to finish resuming. Quit to Menu confirms that current room progress will be lost.
+There is no run save/continue feature. Application Quit is disabled in the Editor
+and available in the Windows build.
+
+Settings/Controls returns to the menu that opened it. Apply changes and saves
+master volume; Back discards unapplied changes. Separate music/effects mixing is
+marked unavailable. The demo has no audio content, so audible mixer behavior
+cannot be evaluated here. The UI uses Jersey 10 under the bundled SIL Open Font
+License; it is a pixel-style substitute, not a confirmed identification of the
+font in the mockups.
+
+Both scenes are enabled in Build Profiles with TitleScreen first. The setup
+command `Project Rogue → UI → Create menu demo scenes` configures these entries
+without overwriting existing scene files. Open a saved scene before using setup.
+For repeatable runtime checks, enter Play from TitleScreen, then choose
+`Project Rogue → UI → Verify menu flow (Play mode)`. The tool simulates keyboard
+and pointer events, checks pause/retry cleanup, and restores volume preferences
+and input-focus settings afterward. It intentionally forces damage/room clearing
+for some result-screen checks; it is not a human difficulty/playtest study.
+
+See [verification evidence and limitations](../docs/testing/ui-menu-flow.md).
+Original mockups: [UI screens](../docs/design/ui/ui-screens.md), task #76 / PR #78.
+
 > Epic: #30 · Stories: #36, #37 · Documentation task: #59
 
 Project Rogue is a 2D action roguelite with flexible starting classes and builds

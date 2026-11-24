@@ -118,6 +118,8 @@ public class ResourcePool : MonoBehaviour
 
     private void OnGUI()
     {
+        // The menu-enabled arena owns its resource HUD; don't draw debug text over menus.
+        if (ProjectRogue.UI.MenuFlow.Instance != null) return;
         var style = new GUIStyle(GUI.skin.label)
         {
             fontSize = 22

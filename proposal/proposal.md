@@ -144,7 +144,28 @@ Figure 2 shows the intended Windows game in context. Players interact with the l
 
 The [system overview](../docs/design/system-overview.md) contains editable diagram sources, exported views, evidence, and limitations. Save-file format, detailed progression interfaces, and final effect formulas remain design work.
 
-### Specification and design documents
+### Prototype menu implementation
+
+The menu-enabled prototype enters one playable arena directly from a title
+screen. A persistent menu controller owns the title, pause, settings/controls,
+quit confirmation and death/completion panels. The arena combines the shared
+movement and combat foundations with temporary enemies and an exit; this is a
+single-room demonstration rather than the planned three-Act run. Settings
+returns to its opening menu, and retry reloads the arena to discard the previous
+player, enemies, resources and cooldowns. The screen layout follows the UI
+mockups, while starting selection and inventory remain separate implementation
+work. [[task:#79]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/79)
+
+Pause freezes scaled simulation and blocks gameplay input behind the menu;
+resuming waits for held gameplay keys to release. The [prototype guide](../prototype/README.md)
+documents scenes, controls and repeatable verification, and the
+[menu verification report](../docs/testing/ui-menu-flow.md) records the tested
+flow and its limits. The UI uses the bundled Jersey 10 pixel-style font with its
+open-font license. Master volume is functional and persistent; separate music
+and effects mixing is unavailable in this slice.
+[[task:#79]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/79)
+
+### Specification and design document index
 
 | Document | Kind | Covers | Status |
 |---|---|---|---|
@@ -222,6 +243,17 @@ project board and in `docs/sprint-reviews/`. This section answers "how does
 the system actually get built next semester?"〉
 
 ## 7. AI Usage
+
+### UI prototype — task #79
+
+Codex assisted with documentation and verification tooling. The menu and arena
+implementation was collaborative: I provided design direction and reviewed the
+result, and Codex assisted with implementation code.
+
+Automated Editor verification and a Windows build are recorded in the
+[menu verification report](../docs/testing/ui-menu-flow.md). Human gameplay
+acceptance and teammate review remain pending. This task-specific disclosure
+does not supply the team's outstanding project-wide assistance estimates.
 
 > Per the course AI policy (see the syllabus, Use of AI Tools), disclose the
 > AI tools used in preparing this proposal and the prototype: which tools,
