@@ -146,24 +146,23 @@ The [system overview](../docs/design/system-overview.md) contains editable diagr
 
 ### Prototype menu implementation
 
-The menu-enabled prototype enters one playable arena directly from a title
-screen. A persistent menu controller owns the title, pause, settings/controls,
-quit confirmation and death/completion panels. The arena combines the shared
-movement and combat foundations with temporary enemies and an exit; this is a
-single-room demonstration rather than the planned three-Act run. Settings
-returns to its opening menu, and retry reloads the arena to discard the previous
-player, enemies, resources and cooldowns. The screen layout follows the UI
-mockups, while starting selection and inventory remain separate implementation
-work. [[task:#79]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/79)
 
-Pause freezes scaled simulation and blocks gameplay input behind the menu;
-resuming waits for held gameplay keys to release. The [prototype guide](../prototype/README.md)
-documents scenes, controls and repeatable verification, and the
-[menu verification report](../docs/testing/ui-menu-flow.md) records the tested
-flow and its limits. The UI uses the bundled Jersey 10 pixel-style font with its
-open-font license. Master volume is functional and persistent; separate music
-and effects mixing is unavailable in this slice.
-[[task:#79]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/79)
+
+From the title screen, the player selects Start game to enter a single playable arena. The room gives the player a chance to move, jump, dash, and use the prototype’s combat abilities against three enemies. During the encounter, the player can press Escape to pause. From the pause menu, they can open Settings or resume the same attempt. If the player dies, the game opens a results screen. Defeating all three enemies and reaching the green exit opens the room completion screen. From either screen, the player can start a fresh attempt or return to the title screen.
+
+A persistent menu controller owns the title, pause, settings/controls, quit confirmation and death/completion panels. The arena combines the shared movement and combat foundations with temporary enemies and an exit; this is a single-room demonstration rather than the planned three-Act run. Settings returns to its opening menu, and retry reloads the arena to discard the previous player, enemies, resources and cooldowns. The screen layout follows the UI mockups, while starting selection and inventory remain separate implementation work. [[task:#79]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/79)
+
+When the player pauses, Unity’s time scale is set to zero and gameplay input is blocked. Enemy movement, projectiles, and mana regeneration stop until the player resumes. The same encounter then continues. Any gameplay key held during the transition must be released before it can trigger another action, so holding the attack key while closing the menu does not immediately fire an attack.
+
+The [prototype guide](../prototype/README.md) documents scenes, controls and repeatable verification, and the [menu verification report](../docs/testing/ui-menu-flow.md) records the tested flow and its limits. The UI uses the bundled Jersey 10 pixel-style font with its open-font license. Master volume is functional and persistent; separate music and effects mixing is unavailable in this slice. [[task:#79]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/79)
+
+The team ran 36 menu-flow checks in the Unity Editor, and all passed. The checks covered keyboard navigation on the title screen, arena loading, pausing and resuming during combat, and retrying after death or room completion. The retry checks confirmed that the arena reloaded with fresh actors and no duplicates. The Windows x64 build also launched successfully. Menu interaction and the Quit button in the standalone build still need a hands-on check.
+
+[[task:#86]](https://github.com/austin2578/CPSC490-G18-ProStrats/issues/86)
+
+![Project Rogue title screen with Start game, Settings, and Quit](../docs/testing/ui-menu-title.png)
+
+*Figure 3 - Title screen for the single-arena prototype. Start game loads the playable arena directly.*
 
 ### Specification and design document index
 
