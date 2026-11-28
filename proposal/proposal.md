@@ -243,29 +243,77 @@ the system actually get built next semester?"〉
 
 ## 7. AI Usage
 
+### Overall Summary
+
+The team used three AI tools during the project: Codex, ChatGPT, and Claude. AI tools assisted mainly with the prototype code generation and scaffolding. A small portion of AI assistance is contributed to verification, documentation drafting, diagram drafting, and pull request descriptions. Pull requests that did not involve AI usage are not listed in this section. Based on each contributor's disclosure, it is estimated that approximately one-third of the Unity prototype code, proposal, design, and diagrams were AI assisted. The AI assisted share was approximated based on the scope of usage reported by the contributor and the number of pull requests that reported AI usage. Across all pull requests, a team member reviewed the AI assisted documents and verified it before merging.
+
 ### UI prototype — task #79
 
-Codex assisted with documentation and verification tooling. The menu and arena
-implementation was collaborative: I provided design direction and reviewed the
-result, and Codex assisted with implementation code.
+Codex assisted with documentation and verification tooling. The menu and arena implementation was collaborative: I provided design direction and reviewed the result, and Codex assisted with implementation code.
 
-Automated Editor verification and a Windows build are recorded in the
-[menu verification report](../docs/testing/ui-menu-flow.md). Human gameplay
-acceptance and teammate review remain pending. This task-specific disclosure
-does not supply the team's outstanding project-wide assistance estimates.
+Automated Editor verification and a Windows build are recorded in the [menu verification report](../docs/testing/ui-menu-flow.md). Human gameplay acceptance and teammate review remain pending. This task-specific disclosure does not supply the team's outstanding project-wide assistance estimates.
 
-> Per the course AI policy (see the syllabus, Use of AI Tools), disclose the
-> AI tools used in preparing this proposal and the prototype: which tools,
-> for what tasks (e.g., code generation, test writing, debugging,
-> diagramming), and approximately what fraction of each artifact was
-> AI-assisted.
->
-> Reminder: the prose of this proposal must be your own writing. You remain
-> fully responsible for the correctness of all AI-assisted work, including
-> the prototype code.
+### Proposal §4 menu write-up — task #86
 
-〈Your disclosure. Naming the tool is not disclosure — name what it drafted,
-what fraction of each artifact was AI-assisted, and how you verified it.〉
+ChatGPT was used only to prepare the pull request description. The §4 write-up and Figure 3 were written without AI assistance.
+
+### Shared movement and traversal room — task #36
+
+Codex assisted with the movement code implementation, scene and asset setup, verification tools, and the pull request description. Another teammate reviewed and approved the movement and traversal room behavior. The traversal room verification passed for all weapon and element combinations, tested in Play Mode, and the repository harness reported zero failures.
+
+### Combat pipeline — task #37
+
+Claude helped create the skeleton of several combat files and the initial ability values and the author wrote the remaining implementation. The code was verified by testing damage, resource costs, cooldowns, attribute scaling, behavior when resources are depleted, and enemy defeat in Unity Play Mode. The author also compared the results against Objective 2.2.
+
+### Attributes, resources, and respec — task #33
+
+ChatGPT assisted with editing `AttributeSet`, `PlayerProgression`, Health and resource configuration methods, Objective 1.2 verification script, and test procedures. Manual testing was done for leveling, Attribute Point investment, respec, combat compatibility, and resources.
+
+### Starting classes and class traversal — task #32
+
+ChatGPT assisted in building the class architecture, implementation scaffolding, editor setup utilities, verification code, and UI integration. ChatGPT also assisted with in refactoring class traversal code. The author compiled and ran the project and manually tested all three classes and their abilities in Unity Play Mode.
+
+### Boons, status effects, and build interactions — task #35
+
+Claude drafted the implementation of the effect files. The author debugged the code, added comments, and edited the existing combat files to integrate it. In Unity Play Mode, the author confirmed that baseline damage remained unchanged and that a critical damage boon and a resource cost boon behaved as expected. It was verified that Burn ticked and expired correctly, dodging remained untested, and effect chains stop at proc depth 3 without looping.
+
+### Node rewards and run progression — task #40
+
+Claude assisted in creating draft scripts in `Assets/Scripts/Run/` and debugged compilation errors. The author integrated the code with the existing combat scripts, resolved the remaining compile errors, and built the test room manually in Unity. The author confirmed that the project compiles with zero errors, playtested the room, and confirmed that defeating a dummy enemy grants XP and Gold. It was also verified that the debug panel can be shown, hidden, and used to make choices, and that a door can lead the next node.
+
+### Run, room, and reward flow diagram — task #58
+
+Claude drafted the first version of the flow chart. The author revised it into the final diagram and wrote the accompanying Markdown documentation without AI assistance. The documentation harness reported zero failures and zero warnings. Some features shown in the diagram still require a team decision to be made.
+
+### Proposal sections 3–5 — task #49
+
+Codex assisted with drafting, architecture and system context diagrams, activity table organization, and repository verification. The repository harness reported zero failures warnings, and the issue link, diagram XML, and whitespace checks passed. The proposal, requirements, and activity assignments were checked and approved by another teammate.
+
+### Playtest procedure — task #48
+
+Codex drafted the playtest document text and the related proposal update. All documents were checked by a teamate and approved.
+
+### Problem statements (§1.2) — task #6
+
+Codex produced the first draft of the problem statements and the problem and goal mapping table. The local repository check reported zero failures and three warnings. Final prose was reviewed by the author and peer reviewed before merging.
+
+### Cover page and Introduction (§1)
+
+ChatGPT helped develop an initial outline and draft of the Introduction and gave feedback on its organization and wording. The author reviewed and revised the Introduction, confirmed its alignment with initial Project Rogue design, and verified team and project information. The contributor also compared the section against the course proposal template and ran the repository harness.
+
+### Goal 1 specification
+
+ChatGPT assisted with the first draft and organization of `docs/specs/flexible-character-progression.md`, including requirement writing, tables, acceptance criteria, and open questions. The author compared the specification against the approved Goal 1 objectives in §2, the linked issues #29 and #32–#35, and the repository harness passed.
+
+### UI screens documentation — task #76
+
+Claude helped with the Markdown formatting of `docs/design/ui-screens.md`. The AI disclosure reports no assistance for the UI screen images. The author previewed the document and confirmed that all eleven images render.
+
+### Goals and objectives (§2) — task #28
+
+ChatGPT was used to draft goals and objectives. Final prose was rewritten and verified by the author.
+
+(To be finished after completion of Sprint 4)
 
 ## 8. References
 
